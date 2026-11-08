@@ -1,0 +1,10 @@
+.env
+sa.json
+.venv/
+data/cache/
+data/leads.duckdb
+data/leads.duckdb.wal
+data/pipeline.lock
+__pycache__/
+*.pyc
+.pytest_cache/

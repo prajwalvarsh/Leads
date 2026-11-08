@@ -1,0 +1,137 @@
+# Berlin configuration for Task 1
+
+bbox:
+  low:  {lat: 52.3383, lon: 13.0884}
+  high: {lat: 52.6755, lon: 13.7611}
+
+sources:
+  serper_maps: {enabled: true}
+  places: {enabled: false}      # no Google billing account; optional
+  osm: {enabled: true}
+  gelbeseiten: {enabled: true}
+  dasoertliche: {enabled: true}
+  "11880": {enabled: true}
+  search: {enabled: true}
+  associations: {enabled: true}
+
+serper_maps:
+  queries: [Hausverwaltung, Immobilienverwaltung]
+  spacing_km: 3          # start value; final value chosen from the pilot
+  zoom: 14
+  max_pages: 3
+  min_new_per_page: 3    # stop paging when a page adds fewer new places
+  pilot_points: 5
+
+places:
+  queries: [Hausverwaltung, Immobilienverwaltung, WEG-Verwaltung, Mietverwaltung]
+  grid: 4                 # initial split: 4 x 4 tiles
+  max_results: 60         # 3 pages x 20 = saturated tile -> split
+  min_tile_edge_m: 300    # do not split below this edge length
+
+directory_terms: [Hausverwaltung, Immobilienverwaltung, WEG-Verwaltung]
+
+search_templates:
+  bezirk: ["Hausverwaltung Berlin-{bezirk}"]
+  ortsteil: ["WEG-Verwaltung Berlin {ortsteil}", "Immobilienverwaltung {ortsteil} Berlin"]
+
+# Hard caps. Checked per run AND per calendar month (api_usage table).
+caps:
+  serper_credits: 1800    # per run, discover (serper_maps)
+  serper_total: 2500      # free signup credits (one-time); all Serper use counts against this
+  places_text_search: 4500
+  places_details: 900
+  tavily_credits: 900
+  llm_calls: 0            # TODO: model + cap to be agreed before first live LLM call
+
+tavily_budgets:           # split of tavily_credits per stage
+  discover: 250
+  resolve: 500
+  crawl: 150
+
+# Hosts that are never a company's own domain (registrable domain)
+shared_hosts:
+  - jimdo.com
+  - jimdosite.com
+  - jimdofree.com
+  - wixsite.com
+  - wix.com
+  - weebly.com
+  - wordpress.com
+  - blogspot.com
+  - site123.me
+  - business.site
+  - google.com
+  - goo.gl
+  - facebook.com
+  - instagram.com
+  - linkedin.com
+  - xing.com
+  - twitter.com
+  - x.com
+  - youtube.com
+  - t-online.de
+  - web.de
+  - gmx.de
+  - gmx.net
+
+# Directories / portals / media: not company sites (search results are dropped,
+# or treated as portal pages to extract a list from)
+portal_domains:
+  - gelbeseiten.de
+  - dasoertliche.de
+  - 11880.com
+  - dastelefonbuch.de
+  - meinestadt.de
+  - golocal.de
+  - yelp.de
+  - yelp.com
+  - cylex.de
+  - cylex-branchenbuch-berlin.de
+  - werkenntdenbesten.de
+  - kennstdueinen.de
+  - immobilienscout24.de
+  - immowelt.de
+  - immonet.de
+  - wohnungsboerse.net
+  - kleinanzeigen.de
+  - ebay-kleinanzeigen.de
+  - hausverwalter-check.de
+  - hausverwaltung-vergleich.de
+  - hausverwaltungen.de
+  - proven-expert.com
+  - provenexpert.com
+  - trustpilot.com
+  - trustlocal.de
+  - northdata.de
+  - northdata.com
+  - firmenwissen.de
+  - unternehmensregister.de
+  - handelsregister.de
+  - wikipedia.org
+  - berlin.de
+  - tagesspiegel.de
+  - morgenpost.de
+  - bz-berlin.de
+  - rbb24.de
+  - verwalter-suche.de
+  - vdiv.de
+  - ddiv.de
+  - bvi-verwalter.de
+  - tripadvisor.de
+  - indeed.com
+  - stepstone.de
+  - kununu.com
+
+bezirke:
+  Charlottenburg-Wilmersdorf: [Charlottenburg, Charlottenburg-Nord, Grunewald, Halensee, Schmargendorf, Westend, Wilmersdorf]
+  Friedrichshain-Kreuzberg: [Friedrichshain, Kreuzberg]
+  Lichtenberg: [Alt-Hohenschönhausen, Falkenberg, Fennpfuhl, Friedrichsfelde, Karlshorst, Lichtenberg, Malchow, Neu-Hohenschönhausen, Rummelsburg, Wartenberg]
+  Marzahn-Hellersdorf: [Biesdorf, Hellersdorf, Kaulsdorf, Mahlsdorf, Marzahn]
+  Mitte: [Gesundbrunnen, Hansaviertel, Mitte, Moabit, Tiergarten, Wedding]
+  Neukölln: [Britz, Buckow, Gropiusstadt, Neukölln, Rudow]
+  Pankow: [Blankenburg, Blankenfelde, Buch, Französisch Buchholz, Heinersdorf, Karow, Niederschönhausen, Pankow, Prenzlauer Berg, Rosenthal, Stadtrandsiedlung Malchow, Weißensee, Wilhelmsruh]
+  Reinickendorf: [Borsigwalde, Frohnau, Heiligensee, Hermsdorf, Konradshöhe, Lübars, Märkisches Viertel, Reinickendorf, Tegel, Waidmannslust, Wittenau]
+  Spandau: [Falkenhagener Feld, Gatow, Hakenfelde, Haselhorst, Kladow, Siemensstadt, Spandau, Staaken, Wilhelmstadt]
+  Steglitz-Zehlendorf: [Dahlem, Lankwitz, Lichterfelde, Nikolassee, Steglitz, Wannsee, Zehlendorf]
+  Tempelhof-Schöneberg: [Friedenau, Lichtenrade, Mariendorf, Marienfelde, Schöneberg, Tempelhof]
+  Treptow-Köpenick: [Adlershof, Alt-Treptow, Altglienicke, Baumschulenweg, Bohnsdorf, Friedrichshagen, Grünau, Johannisthal, Köpenick, Müggelheim, Niederschöneweide, Oberschöneweide, Plänterwald, Rahnsdorf, Schmöckwitz]
