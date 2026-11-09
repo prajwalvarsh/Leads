@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import httpx
+from tenacity import retry, retry_if_exception, stop_after_attempt, wait_exponential
 
 from pipeline.config import USER_AGENT
 from pipeline.models import Candidate
@@ -52,6 +53,15 @@ def parse(elements: list[dict]) -> list[Candidate]:
     return out
 
 
+def _temporary(e: BaseException) -> bool:
+    """Overpass is often briefly overloaded (429/502/503/504) or slow; those are worth a retry."""
+    if isinstance(e, httpx.HTTPStatusError):
+        return e.response.status_code in (429, 502, 503, 504)
+    return isinstance(e, httpx.TransportError)
+
+
+@retry(retry=retry_if_exception(_temporary), stop=stop_after_attempt(3),
+       wait=wait_exponential(multiplier=15, max=60), reraise=True)
 def discover() -> list[Candidate]:
     r = httpx.post(
         OVERPASS, data={"data": QUERY}, headers={"User-Agent": USER_AGENT}, timeout=200

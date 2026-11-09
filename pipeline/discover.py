@@ -17,6 +17,7 @@ from typing import Any
 
 from pipeline.budget import Budget, CapExceeded
 from pipeline.contract import Ctx, StageResult
+from pipeline import overlap
 from pipeline.http import Fetcher
 from pipeline.models import Candidate
 from pipeline.sources import associations, dasoertliche, elf880, gelbeseiten, osm, places, search, serper_maps
@@ -190,6 +191,19 @@ def run_discover(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
             ctx.log(STAGE, "associations.skipped", "data/manual/associations.csv not found")
         else:
             record("associations", save(ctx, cands))
+
+    # Overlap of Serper Maps with every other source (needs serper_maps_tmp, so only in this run)
+    if wanted("serper_maps"):
+        excluded = ctx.cfg["shared_hosts"] + ctx.cfg["portal_domains"]
+        sm_recs = overlap.serper_records(ctx.con, excluded)
+        if sm_recs:
+            others = [r[0] for r in ctx.con.execute(
+                "SELECT DISTINCT source FROM candidate WHERE source <> 'serper_maps' ORDER BY 1").fetchall()]
+            ov = {src: overlap.overlap(sm_recs, overlap.source_records(ctx.con, src, excluded)) for src in others}
+            res.counts["overlap_serper_maps"] = ov
+            for src, o in ov.items():
+                ctx.log(STAGE, f"overlap.serper_maps.{src}", o)
+                print(f"[discover] overlap serper_maps x {src}: {o}")
 
     after = candidate_ids(ctx)
     res.counts["candidates_per_source"] = per_source
