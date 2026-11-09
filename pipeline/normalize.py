@@ -74,14 +74,18 @@ def clean_ws(text: str | None) -> str:
 # Order matters: longest/most specific first.
 LEGAL_FORMS: list[tuple[str, str]] = [
     ("GmbH & Co. KG", r"gmbh\s*(&|und)\s*co\.?\s*kg"),
+    ("SE & Co. KG", r"\bse\s*(&|und)\s*co\.?\s*kg"),
     ("UG (haftungsbeschränkt)", r"\bug\s*\(?\s*haftungsbeschr(ä|ae)nkt\s*\)?|\bug\b"),
+    ("gGmbH", r"\bggmbh\b"),
     ("GmbH", r"\bgmbh\b|gesellschaft mit beschr(ä|ae)nkter haftung|\bmbh\b"),
+    ("SE", r"\bse\b(?=\s|$|,)|societas europaea"),
     ("AG", r"\bag\b|aktiengesellschaft"),
     ("KG", r"\bkg\b|kommanditgesellschaft"),
     ("OHG", r"\bohg\b|offene handelsgesellschaft"),
     ("GbR", r"\bgbr\b|gesellschaft b(ü|ue)rgerlichen rechts"),
     ("e.K.", r"\be\.\s?k(fm|ffr)?\.?(?=\s|$|,)|eingetragene[rn]? kauf(mann|frau)"),
     ("eG", r"\beg\b|eingetragene genossenschaft"),
+    ("e.V.", r"\be\.\s?v\.|eingetragener verein"),
 ]
 
 
@@ -96,7 +100,7 @@ def legal_form(name: str | None) -> str | None:
 
 
 _LEGAL_STRIP = re.compile(
-    r"gmbh\s*(&|und)\s*co\.?\s*kg|ug\s*\(haftungsbeschr(ae|a)nkt\)|\b(gmbh|mbh|ug|ag|kg|ohg|gbr|e\.?\s?k\.?|eg|"
+    r"gmbh\s*(&|und)\s*co\.?\s*kg|ug\s*\(haftungsbeschr(ae|a)nkt\)|\b(ggmbh|gmbh|mbh|ug|ag|kg|ohg|gbr|e\.?\s?k\.?|e\.\s?v\.?|eg|"
     r"inh\.?|inhaber(in)?)\b"
 )
 
@@ -130,11 +134,14 @@ class Register:
 
 
 _REG = re.compile(
-    r"\b(HR\s?[AB]|GnR|PR|VR)\s*[:.\-]?\s*(?:Nr\.?\s*)?(\d{2,6})(?:\s*([A-Z]))?\b"
+    r"\b(HR\s?[AB]|GnR|PR|VR)\s*[:.\-]?\s*(?:Nr\.?\s*:?\s*)?(\d{2,6})(?:\s*([A-Z]))?\b"
 )
+# Court = one place name. Two-word forms only where court names really have them:
+# "Bad Homburg", "Frankfurt (Oder)", "Frankfurt am Main". "Berlin(-/–)Charlottenburg" -> Charlottenburg.
 _COURT = re.compile(
-    r"(?:Amtsgericht|AG|Registergericht)[:\s]+(?:Berlin[\s\-]*)?\(?((?!HR|GnR|PR\b|VR\b|Amtsgericht)[A-ZÄÖÜ][\wäöüß\-]+"
-    r"(?:\s(?!HR|GnR|PR\b|VR\b|Nr|Register|Handels|Steuer|USt|Sitz|Geschäfts)[A-ZÄÖÜ][\wäöüß\-]+)?)\)?"
+    r"(?:Amtsgericht|AG|Registergericht)[:\s]+(?:(?:Amtsgericht|AG)\s+)?(?:Berlin\s*[\-–]?\s*\(?(?=[A-ZÄÖÜ]))?"
+    r"((?!HR|GnR|PR\b|VR\b|Amtsgericht|Register|Handels|Nr\b)(?:Bad\s)?[A-ZÄÖÜ][\wäöüß]+"
+    r"(?:\s*\((?:Oder|Main)\)|\s(?:am|an\sder)\s[A-ZÄÖÜ][\wäöüß]+)?)\)?"
 )
 
 

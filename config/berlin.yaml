@@ -43,7 +43,23 @@ caps:
   places_text_search: 4500
   places_details: 900
   tavily_credits: 900
-  llm_calls: 0            # TODO: model + cap to be agreed before first live LLM call
+  llm_extract: 1200       # LLM calls per run, per stage (proposed caps, not yet confirmed by the user)
+  llm_classify: 1300
+  llm_agent: 800
+  llm_month: 10000        # all LLM calls in a calendar month
+
+# OpenRouter slugs per role (user choice 2026-11-09: gpt-4o-mini; structured outputs verified).
+# check (spot check) skipped for now by user decision; must be a different family from extract.
+models:
+  extract: openai/gpt-4o-mini
+  classify: openai/gpt-4o-mini
+  agent: openai/gpt-4o-mini
+  check: null
+prompts: {extract: 1, classify: 1, agent: 1}
+llm:
+  temperature: 0
+  max_text_chars: 12000   # page text sent to the model is cut here
+  concurrency: 8
 
 resolve:
   # Search cap = remaining Serper credits minus this reserve (search pilot + investigate)
@@ -53,6 +69,16 @@ resolve:
   group_min_ratio: 90     # fuzzy name at same street = same company across sources
   # Search order for candidates without a website: found by 2+ sources, then these keywords, then rest
   priority_keywords: [Hausverwaltung, Immobilienverwaltung, WEG, Mietverwaltung]
+
+crawl:
+  max_age_days: 30          # incremental: re-crawl a site only if older than this
+  min_text_chars: 200       # less text than this -> Playwright, then Tavily Extract
+  impressum_words: [impressum, imprint, rechtliches, anbieterkennzeichnung]
+  fallback_paths: [/impressum, /impressum/, /impressum.html, /impressum.php, /de/impressum]
+  about_words: [über uns, ueber-uns, ueber_uns, uber-uns, about, wir über uns, unternehmen]
+  services_words: [leistungen, leistung, services, service]
+  playwright_concurrency: 3
+  playwright_timeout_s: 20
 
 tavily_budgets:           # split of tavily_credits per stage
   discover: 250

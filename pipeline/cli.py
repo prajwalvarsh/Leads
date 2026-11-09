@@ -15,6 +15,8 @@ from pipeline.budget import Budget
 from pipeline.config import cfg
 from pipeline.contract import Ctx, RunLock, RunLocked, StageResult, make_ctx
 from pipeline.discover import SOURCES, run_discover, run_serper_pilot
+from pipeline.crawl import run_crawl
+from pipeline.extract import run_extract
 from pipeline.resolve import run_resolve
 
 app = typer.Typer(add_completion=False, no_args_is_help=True)
@@ -69,6 +71,18 @@ def discover(
 def resolve(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
     """Stage 2: one website per candidate (source, same-company record, then Serper search)."""
     _execute(run_resolve, as_json, mode, params)
+
+
+@app.command()
+def crawl(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 3: fetch home, Impressum and up to 2 more pages per website."""
+    _execute(run_crawl, as_json, mode, params)
+
+
+@app.command()
+def extract(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 4: Impressum -> legal data (LLM, regex cross-check, evidence check)."""
+    _execute(run_extract, as_json, mode, params)
 
 
 @app.command(name="serper-pilot")

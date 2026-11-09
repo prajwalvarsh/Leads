@@ -43,6 +43,13 @@ CREATE TABLE IF NOT EXISTS website (
     candidate_id VARCHAR PRIMARY KEY, url VARCHAR, domain VARCHAR, method VARCHAR,
     detail VARCHAR, from_google BOOLEAN, run_id VARCHAR, resolved_at TIMESTAMP
 );
+-- crawl: one row per site (domain from the website table). status: ok | failed
+CREATE TABLE IF NOT EXISTS crawl_site (
+    domain VARCHAR PRIMARY KEY, start_url VARCHAR, final_url VARCHAR, status VARCHAR, reason VARCHAR,
+    impressum_url VARCHAR, impressum_found_by VARCHAR, pages INTEGER, run_id VARCHAR, crawled_at TIMESTAMP
+);
+-- Review queue: one row per reason a stage found (classify/investigate read it).
+CREATE TABLE IF NOT EXISTS review (candidate_id VARCHAR, stage VARCHAR, reason VARCHAR);
 CREATE TABLE IF NOT EXISTS excluded (candidate_id VARCHAR, reason VARCHAR);
 CREATE TABLE IF NOT EXISTS run_log (
     run_id VARCHAR, stage VARCHAR, key VARCHAR, value VARCHAR, ts TIMESTAMP

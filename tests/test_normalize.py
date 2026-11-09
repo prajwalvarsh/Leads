@@ -55,6 +55,24 @@ def test_parse_register() -> None:
 
     assert parse_register("Keine Registereintragung") is None
 
+    # the next capitalised word after the court is not part of the court name
+    r4 = parse_register("HRB 216358B Registergericht: Berlin Charlottenburg Umsatzsteuer-Identifikationsnummer")
+    assert r4 and r4.court == "Charlottenburg"
+    r5 = parse_register("HRB 221169 B Registergericht: Amtsgericht Charlottenburg Vertreten durch: X")
+    assert r5 and r5.court == "Charlottenburg"
+    # formats seen in the extract run
+    for text, court in [
+        ("Registergericht: AG Berlin - Charlottenburg, HRB 12345", "Charlottenburg"),
+        ("Amtsgericht Berlin – Charlottenburg HRB 12345 B", "Charlottenburg"),
+        ("Amtsgericht Charlottenburg von Berlin HRB 12345", "Charlottenburg"),
+        ("Amtsgericht Charlottenburg Erlaubnis nach § 34c GewO HRB 12345", "Charlottenburg"),
+        ("Amtsgericht Frankfurt (Oder) HRB 12345", "Frankfurt (Oder)"),
+        ("Amtsgericht Berlin HRB 12345", "Berlin"),
+        ("Registergericht: Amtsgericht Charlottenburg Registernummer: HRB 12345", "Charlottenburg"),
+    ]:
+        r = parse_register(text)
+        assert r and r.court == court, (text, r)
+
 
 def test_address_helpers() -> None:
     assert parse_postcode_city("10117 Berlin, Mitte") == ("10117", "Berlin")
