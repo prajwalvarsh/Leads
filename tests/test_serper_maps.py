@@ -1,3 +1,6 @@
+import json
+from pathlib import Path
+
 import duckdb
 import pytest
 
@@ -8,6 +11,7 @@ from pipeline.sources.serper_maps import (
     choose_spacing,
     grid_points,
     is_berlin_place,
+    parse_places,
     pilot_points,
     should_fetch_next,
     store_place,
@@ -56,6 +60,23 @@ def test_choose_spacing_stays_under_cap() -> None:
     smaller = [s for s in est if s < spacing]
     assert all(est[s] > 1800 for s in smaller)
     assert choose_spacing([10_000], cap=1800)[0] is None
+
+
+def test_parse_real_sample() -> None:
+    data = json.loads((Path(__file__).parent / "fixtures" / "serper_maps_sample.json").read_text("utf-8"))
+    places = parse_places(data)
+    assert len(places) == len(data["places"]) == 20
+    assert len({p.ref for p in places}) == 20                    # CIDs are unique
+    first = places[0]
+    assert first.ref == data["places"][0]["cid"]
+    assert first.name and first.address and first.lat and first.lon
+    assert sum(p.website is not None for p in places) == 18      # 2 places have no website
+    assert all(is_berlin_place(p) for p in places)               # Mitte sample: all in Berlin
+
+
+def test_parse_skips_place_without_ref() -> None:
+    assert parse_places({"places": [{"title": "no id"}]}) == []
+    assert parse_places({}) == []
 
 
 def test_serper_tmp_dropped_at_end_of_run() -> None:

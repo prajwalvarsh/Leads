@@ -120,11 +120,26 @@ class Place:
 
 
 def parse_places(data: dict) -> list[Place]:
-    """Map one Serper Maps response to Place objects.
+    """Map one Serper Maps response to Place objects (fields as in tests/fixtures/serper_maps_sample.json).
 
-    Written from tests/fixtures/serper_maps_sample.json once it exists; field names are not guessed.
+    ref = Google CID (always present in the sample); placeId as fallback. Places without either are skipped.
     """
-    raise NotImplementedError("parser pending: save one real response first (cli serper-sample)")
+    out: list[Place] = []
+    for p in data.get("places") or []:
+        ref = p.get("cid") or p.get("placeId")
+        if not ref:
+            continue
+        out.append(Place(
+            ref=str(ref),
+            name=p.get("title"),
+            address=p.get("address"),
+            website=p.get("website"),
+            phone=p.get("phoneNumber"),
+            lat=p.get("latitude"),
+            lon=p.get("longitude"),
+            type=p.get("type"),
+        ))
+    return out
 
 
 _PLZ = re.compile(r"\b(\d{5})\b")
