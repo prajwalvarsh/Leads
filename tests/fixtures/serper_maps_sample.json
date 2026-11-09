@@ -1,0 +1,559 @@
+{
+  "searchParameters": {
+    "q": "Hausverwaltung",
+    "gl": "de",
+    "hl": "de",
+    "type": "maps",
+    "num": 10,
+    "page": 1,
+    "ll": "@52.530000,13.360000,14z",
+    "engine": "google"
+  },
+  "ll": "@52.5300000,13.3600000,14z",
+  "places": [
+    {
+      "position": 1,
+      "title": "Beispiel Hausverwaltung 1",
+      "address": "Teststraße 1, 10115 Berlin, Deutschland",
+      "latitude": 52.521,
+      "longitude": 13.381,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen",
+        "Wohnungsvermietungsagentur",
+        "Immobilienvermittlung"
+      ],
+      "website": "https://hv-beispiel-1.example/",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000001",
+      "fid": "0x0:0x1",
+      "placeId": "FAKE_PLACE_ID_1"
+    },
+    {
+      "position": 2,
+      "title": "Beispiel Hausverwaltung 2",
+      "address": "Teststraße 2, 10115 Berlin, Deutschland",
+      "latitude": 52.522,
+      "longitude": 13.382,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-2.example/",
+      "phoneNumber": "030 1234002",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000002",
+      "fid": "0x0:0x2",
+      "placeId": "FAKE_PLACE_ID_2"
+    },
+    {
+      "position": 3,
+      "title": "Beispiel Hausverwaltung 3",
+      "address": "Teststraße 3, 10115 Berlin, Deutschland",
+      "latitude": 52.523,
+      "longitude": 13.383,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-3.example/",
+      "phoneNumber": "030 1234003",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000003",
+      "fid": "0x0:0x3",
+      "placeId": "FAKE_PLACE_ID_3"
+    },
+    {
+      "position": 4,
+      "title": "Beispiel Hausverwaltung 4",
+      "address": "Teststraße 4, 10115 Berlin, Deutschland",
+      "latitude": 52.524,
+      "longitude": 13.384,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "phoneNumber": "030 1234004",
+      "isUnclaimedListing": true,
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000004",
+      "fid": "0x0:0x4",
+      "placeId": "FAKE_PLACE_ID_4"
+    },
+    {
+      "position": 5,
+      "title": "Beispiel Hausverwaltung 5",
+      "address": "Teststraße 5, 10115 Berlin, Deutschland",
+      "latitude": 52.525,
+      "longitude": 13.385,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-5.example/",
+      "phoneNumber": "030 1234005",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000005",
+      "fid": "0x0:0x5",
+      "placeId": "FAKE_PLACE_ID_5"
+    },
+    {
+      "position": 6,
+      "title": "Beispiel Hausverwaltung 6",
+      "address": "Teststraße 6, 10115 Berlin, Deutschland",
+      "latitude": 52.526,
+      "longitude": 13.386,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-6.example/",
+      "phoneNumber": "030 1234006",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000006",
+      "fid": "0x0:0x6",
+      "placeId": "FAKE_PLACE_ID_6"
+    },
+    {
+      "position": 7,
+      "title": "Beispiel Hausverwaltung 7",
+      "address": "Teststraße 7, 10115 Berlin, Deutschland",
+      "latitude": 52.527,
+      "longitude": 13.387,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen",
+        "Immobilienverwaltungsservice"
+      ],
+      "website": "https://hv-beispiel-7.example/",
+      "phoneNumber": "030 1234007",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000007",
+      "fid": "0x0:0x7",
+      "placeId": "FAKE_PLACE_ID_7"
+    },
+    {
+      "position": 8,
+      "title": "Beispiel Hausverwaltung 8",
+      "address": "Teststraße 8, 10115 Berlin, Deutschland",
+      "latitude": 52.528,
+      "longitude": 13.388,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-8.example/",
+      "phoneNumber": "030 1234008",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000008",
+      "fid": "0x0:0x8",
+      "placeId": "FAKE_PLACE_ID_8"
+    },
+    {
+      "position": 9,
+      "title": "Beispiel Hausverwaltung 9",
+      "address": "Teststraße 9, 10115 Berlin, Deutschland",
+      "latitude": 52.529,
+      "longitude": 13.389,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen",
+        "Gebäudeinstandhaltung",
+        "Immobilienvermittlung"
+      ],
+      "website": "https://hv-beispiel-9.example/",
+      "phoneNumber": "030 1234009",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "bookingLinks": [
+        {
+          "url": "https://example.invalid/book"
+        }
+      ],
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000009",
+      "fid": "0x0:0x9",
+      "placeId": "FAKE_PLACE_ID_9"
+    },
+    {
+      "position": 10,
+      "title": "Beispiel Hausverwaltung 10",
+      "address": "Teststraße 10, 10115 Berlin, Deutschland",
+      "latitude": 52.53,
+      "longitude": 13.39,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-10.example/",
+      "phoneNumber": "030 1234010",
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000010",
+      "fid": "0x0:0xa",
+      "placeId": "FAKE_PLACE_ID_10"
+    },
+    {
+      "position": 11,
+      "title": "Beispiel Hausverwaltung 11",
+      "address": "Teststraße 11, 10115 Berlin, Deutschland",
+      "latitude": 52.531,
+      "longitude": 13.391,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-11.example/",
+      "phoneNumber": "030 1234011",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "cid": "1000000000000000011",
+      "fid": "0x0:0xb",
+      "placeId": "FAKE_PLACE_ID_11"
+    },
+    {
+      "position": 12,
+      "title": "Beispiel Hausverwaltung 12",
+      "address": "Teststraße 12, 10115 Berlin, Deutschland",
+      "latitude": 52.532,
+      "longitude": 13.392,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen",
+        "Hausmeisterservice"
+      ],
+      "website": "https://hv-beispiel-12.example/",
+      "phoneNumber": "030 1234012",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "cid": "1000000000000000012",
+      "fid": "0x0:0xc",
+      "placeId": "FAKE_PLACE_ID_12"
+    },
+    {
+      "position": 13,
+      "title": "Beispiel Hausverwaltung 13",
+      "address": "Teststraße 13, 10115 Berlin, Deutschland",
+      "latitude": 52.533,
+      "longitude": 13.393,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-13.example/",
+      "phoneNumber": "030 1234013",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000013",
+      "fid": "0x0:0xd",
+      "placeId": "FAKE_PLACE_ID_13"
+    },
+    {
+      "position": 14,
+      "title": "Beispiel Hausverwaltung 14",
+      "address": "Teststraße 14, 10115 Berlin, Deutschland",
+      "latitude": 52.534,
+      "longitude": 13.394,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen",
+        "Immobilienmakler"
+      ],
+      "website": "https://hv-beispiel-14.example/",
+      "phoneNumber": "030 1234014",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000014",
+      "fid": "0x0:0xe",
+      "placeId": "FAKE_PLACE_ID_14"
+    },
+    {
+      "position": 15,
+      "title": "Beispiel Hausverwaltung 15",
+      "address": "Teststraße 15, 10115 Berlin, Deutschland",
+      "latitude": 52.535,
+      "longitude": 13.395,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-15.example/",
+      "phoneNumber": "030 1234015",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000015",
+      "fid": "0x0:0xf",
+      "placeId": "FAKE_PLACE_ID_15"
+    },
+    {
+      "position": 16,
+      "title": "Beispiel Hausverwaltung 16",
+      "address": "Teststraße 16, 10115 Berlin, Deutschland",
+      "latitude": 52.536,
+      "longitude": 13.396,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-16.example/",
+      "phoneNumber": "030 1234016",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000016",
+      "fid": "0x0:0x10",
+      "placeId": "FAKE_PLACE_ID_16"
+    },
+    {
+      "position": 17,
+      "title": "Beispiel Hausverwaltung 17",
+      "address": "Teststraße 17, 10115 Berlin, Deutschland",
+      "latitude": 52.537,
+      "longitude": 13.397,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Immobilienagentur",
+      "types": [
+        "Immobilienagentur"
+      ],
+      "website": "https://hv-beispiel-17.example/",
+      "phoneNumber": "030 1234017",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "isUnclaimedListing": true,
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000017",
+      "fid": "0x0:0x11",
+      "placeId": "FAKE_PLACE_ID_17"
+    },
+    {
+      "position": 18,
+      "title": "Beispiel Hausverwaltung 18",
+      "address": "Teststraße 18, 10115 Berlin, Deutschland",
+      "latitude": 52.538,
+      "longitude": 13.398,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen",
+        "Immobilienmakler"
+      ],
+      "website": "https://hv-beispiel-18.example/",
+      "phoneNumber": "030 1234018",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000018",
+      "fid": "0x0:0x12",
+      "placeId": "FAKE_PLACE_ID_18"
+    },
+    {
+      "position": 19,
+      "title": "Beispiel Hausverwaltung 19",
+      "address": "Teststraße 19, 10115 Berlin, Deutschland",
+      "latitude": 52.539,
+      "longitude": 13.399,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Immobilienagentur",
+      "types": [
+        "Immobilienagentur"
+      ],
+      "phoneNumber": "030 1234019",
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000019",
+      "fid": "0x0:0x13",
+      "placeId": "FAKE_PLACE_ID_19"
+    },
+    {
+      "position": 20,
+      "title": "Beispiel Hausverwaltung 20",
+      "address": "Teststraße 20, 10115 Berlin, Deutschland",
+      "latitude": 52.54,
+      "longitude": 13.4,
+      "rating": 4.0,
+      "ratingCount": 10,
+      "type": "Hausverwaltungsunternehmen",
+      "types": [
+        "Hausverwaltungsunternehmen"
+      ],
+      "website": "https://hv-beispiel-20.example/",
+      "phoneNumber": "030 1234020",
+      "openingHours": {
+        "Montag": "09:00–17:00",
+        "Dienstag": "09:00–17:00",
+        "Mittwoch": "09:00–17:00",
+        "Donnerstag": "09:00–17:00",
+        "Freitag": "09:00–17:00",
+        "Samstag": "09:00–17:00",
+        "Sonntag": "09:00–17:00"
+      },
+      "thumbnailUrl": "https://example.invalid/thumb.jpg",
+      "cid": "1000000000000000020",
+      "fid": "0x0:0x14",
+      "placeId": "FAKE_PLACE_ID_20"
+    }
+  ],
+  "credits": 3
+}
