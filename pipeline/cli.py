@@ -15,8 +15,10 @@ from pipeline.budget import Budget
 from pipeline.config import cfg
 from pipeline.contract import Ctx, RunLock, RunLocked, StageResult, make_ctx
 from pipeline.discover import SOURCES, run_discover, run_serper_pilot
+from pipeline.resolve import run_resolve
 
 app = typer.Typer(add_completion=False, no_args_is_help=True)
+sys.stdout.reconfigure(line_buffering=True)  # progress lines show up in log files while a stage runs
 
 JsonOpt = typer.Option(False, "--json", help="Print the StageResult as the last stdout line")
 ModeOpt = typer.Option("full", "--mode", help="full | incremental")
@@ -61,6 +63,12 @@ def discover(
 ) -> None:
     """Stage 1: find candidates from all enabled sources."""
     _execute(run_discover, as_json, mode, params, {"sources": source} if source else None)
+
+
+@app.command()
+def resolve(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 2: one website per candidate (source, same-company record, then Serper search)."""
+    _execute(run_resolve, as_json, mode, params)
 
 
 @app.command(name="serper-pilot")

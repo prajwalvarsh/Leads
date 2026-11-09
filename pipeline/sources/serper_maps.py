@@ -24,6 +24,7 @@ from pipeline.db import now
 from pipeline.models import candidate_id
 
 URL = "https://google.serper.dev/maps"
+SEARCH_URL = "https://google.serper.dev/search"
 SAMPLE_PATH = ROOT / "tests" / "fixtures" / "serper_maps_sample.json"
 KM_PER_DEG_LAT = 111.32
 
@@ -88,13 +89,19 @@ class SerperClient:
         wait=wait_exponential(multiplier=2, max=20),
         reraise=True,
     )
-    def _post(self, body: dict) -> httpx.Response:
-        return self.http.post(URL, json=body)
+    def _post(self, url: str, body: dict) -> httpx.Response:
+        return self.http.post(url, json=body)
 
     def maps(self, q: str, point: GridPoint, page: int, zoom: int) -> dict:
+        return self._call(URL, {"q": q, "ll": point.ll(zoom), "gl": "de", "hl": "de", "page": page})
+
+    def search(self, q: str) -> dict:
+        """Google web search via Serper (1 credit in the saved sample)."""
+        return self._call(SEARCH_URL, {"q": q, "gl": "de", "hl": "de"})
+
+    def _call(self, url: str, body: dict) -> dict:
         self.budget.spend(1)  # reserve 1 credit; corrected below if the response reports more
-        body = {"q": q, "ll": point.ll(zoom), "gl": "de", "hl": "de", "page": page}
-        r = self._post(body)
+        r = self._post(url, body)
         self.calls += 1
         if r.status_code >= 400:
             raise RuntimeError(f"Serper error {r.status_code}: {r.text[:300]}")

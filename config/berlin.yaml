@@ -9,6 +9,8 @@ sources:
   places: {enabled: false}      # no Google billing account; optional
   osm: {enabled: true}
   gelbeseiten: {enabled: true}
+  # Kept as full sources: 714 + 154 candidates not found by Serper Maps (overlap run 20261109T095036Z,
+  # reason in run_log stage=decision). robots.txt allows the search pages on both.
   dasoertliche: {enabled: true}
   "11880": {enabled: true}
   search: {enabled: true}
@@ -42,6 +44,15 @@ caps:
   places_details: 900
   tavily_credits: 900
   llm_calls: 0            # TODO: model + cap to be agreed before first live LLM call
+
+resolve:
+  # Search cap = remaining Serper credits minus this reserve (search pilot + investigate)
+  serper_reserve_credits: 300
+  query: '"{name}" Berlin Impressum'
+  domain_min_ratio: 80    # token_set_ratio(name, domain)
+  group_min_ratio: 90     # fuzzy name at same street = same company across sources
+  # Search order for candidates without a website: found by 2+ sources, then these keywords, then rest
+  priority_keywords: [Hausverwaltung, Immobilienverwaltung, WEG, Mietverwaltung]
 
 tavily_budgets:           # split of tavily_credits per stage
   discover: 250
@@ -87,6 +98,7 @@ portal_domains:
   - yelp.com
   - cylex.de
   - cylex-branchenbuch-berlin.de
+  - meineoeffnungszeiten.de
   - werkenntdenbesten.de
   - kennstdueinen.de
   - immobilienscout24.de

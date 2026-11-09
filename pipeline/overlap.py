@@ -27,12 +27,12 @@ class Rec:
     street: tuple[str, str] | None
 
 
-def _domain(url: str | None, excluded: list[str]) -> str | None:
+def domain_of(url: str | None, excluded: list[str]) -> str | None:
     d = registrable_domain(url)
     return None if not d or is_listed_domain(d, excluded) else d
 
 
-def _street(street: str | None) -> tuple[str, str] | None:
+def street_key(street: str | None) -> tuple[str, str] | None:
     if not street:
         return None
     name, num = split_street(street)
@@ -42,8 +42,8 @@ def _street(street: str | None) -> tuple[str, str] | None:
 def serper_records(con: duckdb.DuckDBPyConnection, excluded: list[str]) -> list[Rec]:
     rows = con.execute("SELECT ref, name, address, website, phone FROM serper_maps_tmp").fetchall()
     # Serper address: "Immanuelkirchstraße 26, 10405 Berlin, Deutschland" -> street is the first part
-    return [Rec(ref, _domain(web, excluded), phone_e164(phone), normalise_name(name),
-                _street(addr.split(",")[0] if addr else None))
+    return [Rec(ref, domain_of(web, excluded), phone_e164(phone), normalise_name(name),
+                street_key(addr.split(",")[0] if addr else None))
             for ref, name, addr, web, phone in rows]
 
 
@@ -51,11 +51,11 @@ def source_records(con: duckdb.DuckDBPyConnection, source: str, excluded: list[s
     rows = con.execute(
         "SELECT candidate_id, name, street, website, phone FROM candidate WHERE source = ?", [source]
     ).fetchall()
-    return [Rec(cid, _domain(web, excluded), phone_e164(phone), normalise_name(name), _street(street))
+    return [Rec(cid, domain_of(web, excluded), phone_e164(phone), normalise_name(name), street_key(street))
             for cid, name, street, web, phone in rows]
 
 
-def _same_street(a: tuple[str, str], b: tuple[str, str]) -> bool:
+def same_street(a: tuple[str, str], b: tuple[str, str]) -> bool:
     return a[0] == b[0] and (not a[1] or not b[1] or a[1] == b[1])
 
 
@@ -64,7 +64,7 @@ def match_reason(a: Rec, b: Rec) -> str | None:
         return "domain"
     if a.phone and a.phone == b.phone:
         return "phone"
-    if a.name and b.name and a.street and b.street and _same_street(a.street, b.street) \
+    if a.name and b.name and a.street and b.street and same_street(a.street, b.street) \
             and fuzz.token_set_ratio(a.name, b.name) >= NAME_MIN:
         return "name_street"
     return None

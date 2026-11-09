@@ -37,6 +37,12 @@ CREATE TABLE IF NOT EXISTS fact (
     candidate_id VARCHAR, field VARCHAR, value VARCHAR, evidence_quote VARCHAR,
     source_url VARCHAR, method VARCHAR
 );
+-- resolve: one website per candidate. method: source | group | search | none (searched, no match).
+-- from_google = the URL came from serper_maps_tmp (directly or via a group member).
+CREATE TABLE IF NOT EXISTS website (
+    candidate_id VARCHAR PRIMARY KEY, url VARCHAR, domain VARCHAR, method VARCHAR,
+    detail VARCHAR, from_google BOOLEAN, run_id VARCHAR, resolved_at TIMESTAMP
+);
 CREATE TABLE IF NOT EXISTS excluded (candidate_id VARCHAR, reason VARCHAR);
 CREATE TABLE IF NOT EXISTS run_log (
     run_id VARCHAR, stage VARCHAR, key VARCHAR, value VARCHAR, ts TIMESTAMP
