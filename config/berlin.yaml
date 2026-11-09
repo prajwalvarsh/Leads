@@ -55,7 +55,7 @@ models:
   classify: openai/gpt-4o-mini
   agent: openai/gpt-4o-mini
   check: null
-prompts: {extract: 1, classify: 1, agent: 1}
+prompts: {extract: 1, classify: 2, agent: 1}
 llm:
   temperature: 0
   max_text_chars: 12000   # page text sent to the model is cut here
@@ -79,6 +79,28 @@ crawl:
   services_words: [leistungen, leistung, services, service]
   playwright_concurrency: 3
   playwright_timeout_s: 20
+
+agent:                      # investigate stage (review queue); skipped for now by user decision
+  enabled: false
+  max_cases: 100
+  max_steps: 8
+
+dedupe:
+  name_min_ratio: 90          # fuzzy name, only together with the same street + house number
+  max_names_per_phone: 3      # a phone shared by more different names (switchboard) merges nothing
+
+geo:
+  nominatim_url: https://nominatim.openstreetmap.org/search
+
+classify:
+  # Word stems, matched case-insensitively in name, directory category and home/about/services text.
+  # A keep-word wins over a drop-word (e.g. "Hausverwaltung und Hausmeisterservice" is kept).
+  keep_words: [hausverwalt, immobilienverwalt, weg-verwalt, wegverwalt, wohnungseigentumsverwalt,
+               mietverwalt, sondereigentumsverwalt, se-verwalt, grundstücksverwalt, grundstuecksverwalt,
+               property management, objektverwalt]
+  drop_words: [makler, hausmeister, gebäudereinigung, gebaeudereinigung, winterdienst, software,
+               rechtsanwalt, rechtsanwält, kanzlei, interessenverband, mieterverein, eigentümerverband]
+  max_chars_per_page: 4000
 
 tavily_budgets:           # split of tavily_credits per stage
   discover: 250

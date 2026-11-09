@@ -48,6 +48,24 @@ CREATE TABLE IF NOT EXISTS crawl_site (
     domain VARCHAR PRIMARY KEY, start_url VARCHAR, final_url VARCHAR, status VARCHAR, reason VARCHAR,
     impressum_url VARCHAR, impressum_found_by VARCHAR, pages INTEGER, run_id VARCHAR, crawled_at TIMESTAMP
 );
+-- classify: one row per candidate. status: keep | drop | review. decided_by: llm+rules | llm | rules
+CREATE TABLE IF NOT EXISTS classification (
+    candidate_id VARCHAR PRIMARY KEY, status VARCHAR, decided_by VARCHAR, llm_verdict VARCHAR,
+    services VARCHAR, is_housing_company BOOLEAN, quote VARCHAR, source_url VARCHAR,
+    rule_verdict VARCHAR, rule_word VARCHAR, reason VARCHAR, run_id VARCHAR, classified_at TIMESTAMP
+);
+-- dedupe: one row per company (cluster). tab: companies | excluded | not_in_berlin (set by geo)
+CREATE TABLE IF NOT EXISTS company (
+    company_id VARCHAR PRIMARY KEY, primary_key VARCHAR, company_name VARCHAR, legal_form VARCHAR,
+    street VARCHAR, postcode VARCHAR, city VARCHAR, bezirk VARCHAR, phone VARCHAR, website VARCHAR,
+    impressum_url VARCHAR, register_number VARCHAR, sources VARCHAR, source_count INTEGER,
+    google_place_id VARCHAR, status VARCHAR, review_reason VARCHAR, decided_by VARCHAR,
+    excluded_reason VARCHAR, tab VARCHAR, lat DOUBLE, lon DOUBLE, last_checked DATE,
+    first_seen_run VARCHAR, last_changed_run VARCHAR, fingerprint VARCHAR
+);
+CREATE TABLE IF NOT EXISTS company_member (company_id VARCHAR, candidate_id VARCHAR PRIMARY KEY);
+-- geo: Nominatim results, cached forever (rule 4)
+CREATE TABLE IF NOT EXISTS geocode (query VARCHAR PRIMARY KEY, lat DOUBLE, lon DOUBLE, display VARCHAR, fetched_at TIMESTAMP);
 -- Review queue: one row per reason a stage found (classify/investigate read it).
 CREATE TABLE IF NOT EXISTS review (candidate_id VARCHAR, stage VARCHAR, reason VARCHAR);
 CREATE TABLE IF NOT EXISTS excluded (candidate_id VARCHAR, reason VARCHAR);

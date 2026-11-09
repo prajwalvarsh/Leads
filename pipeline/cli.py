@@ -14,10 +14,19 @@ import typer
 from pipeline.budget import Budget
 from pipeline.config import cfg
 from pipeline.contract import Ctx, RunLock, RunLocked, StageResult, make_ctx
-from pipeline.discover import SOURCES, run_discover, run_serper_pilot
+from pipeline.classify import run_classify
 from pipeline.crawl import run_crawl
+from pipeline.dedupe import run_dedupe
+from pipeline.discover import SOURCES, run_discover, run_serper_pilot
+from pipeline.export import run_export
 from pipeline.extract import run_extract
+from pipeline.geo import run_geo
+from pipeline.investigate import run_investigate
 from pipeline.resolve import run_resolve
+
+STAGES: list[Callable[[Ctx, dict], StageResult]] = [
+    run_discover, run_resolve, run_crawl, run_extract, run_classify, run_investigate, run_dedupe, run_geo, run_export,
+]
 
 app = typer.Typer(add_completion=False, no_args_is_help=True)
 sys.stdout.reconfigure(line_buffering=True)  # progress lines show up in log files while a stage runs
@@ -85,6 +94,36 @@ def extract(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = P
     _execute(run_extract, as_json, mode, params)
 
 
+@app.command()
+def classify(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 5: property manager or not (LLM + keyword rules)."""
+    _execute(run_classify, as_json, mode, params)
+
+
+@app.command()
+def investigate(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 5b: review-queue agent (skipped while agent.enabled is false)."""
+    _execute(run_investigate, as_json, mode, params)
+
+
+@app.command()
+def dedupe(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 6: merge candidates into companies."""
+    _execute(run_dedupe, as_json, mode, params)
+
+
+@app.command()
+def geo(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 7: Berlin check, Nominatim geocoding, Bezirk."""
+    _execute(run_geo, as_json, mode, params)
+
+
+@app.command()
+def export(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Stage 8: write the Google Sheet, drop transient Google data."""
+    _execute(run_export, as_json, mode, params)
+
+
 @app.command(name="serper-pilot")
 def serper_pilot(as_json: bool = JsonOpt, params: str | None = ParamsOpt) -> None:
     """Dev: 5-point Serper Maps pilot; reports credits and the spacing that fits the cap."""
@@ -116,8 +155,25 @@ def serper_sample() -> None:
 
 @app.command(name="all")
 def run_all(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
-    """Full run (stages are added as they are built)."""
-    _execute(run_discover, as_json, mode, params)
+    """Full run: every stage in order under one run_id and one lock; stops at the first failure."""
+    p: dict[str, Any] = json.loads(params) if params else {}
+    p.setdefault("mode", mode)
+    ctx = make_ctx(p)
+    failed = False
+    try:
+        with RunLock(ctx.run_id):
+            ctx.log("run", "start", json.dumps({"stage": "all", "params": p}))
+            for fn in STAGES:
+                result = fn(ctx, p)
+                _print(result, as_json)
+                if result.status == "failed":
+                    failed = True
+                    break
+            ctx.log("run", "end", "failed" if failed else "ok")
+    except RunLocked as e:
+        _print(StageResult(run_id=ctx.run_id, stage="all", status="failed", errors=[str(e)]).finish(), as_json)
+        failed = True
+    raise typer.Exit(1 if failed else 0)
 
 
 if __name__ == "__main__":
