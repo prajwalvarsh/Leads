@@ -25,11 +25,12 @@ def load_prompt(role: str, version: int) -> str:
 
 
 class LLM:
-    def __init__(self, model: str, budget: Budget, temperature: float = 0) -> None:
+    def __init__(self, model: str, budget: Budget, temperature: float | None = 0, max_retries: int = 3) -> None:
+        """temperature=None: not sent (some models, e.g. claude-haiku-5.5, do not accept it)."""
         key = env("OPENROUTER_API_KEY")
         if not key:
             raise RuntimeError("OPENROUTER_API_KEY missing in .env")
-        self.client = OpenAI(base_url=BASE_URL, api_key=key, timeout=90, max_retries=3)
+        self.client = OpenAI(base_url=BASE_URL, api_key=key, timeout=90, max_retries=max_retries)
         self.model = model
         self.budget = budget
         self.temperature = temperature
@@ -44,9 +45,10 @@ class LLM:
         return LLM_CACHE / f"{hashlib.sha1(raw.encode()).hexdigest()}.json"
 
     def _call(self, system: str, user: str, name: str, schema: dict) -> dict:
+        extra = {} if self.temperature is None else {"temperature": self.temperature}
         r = self.client.chat.completions.create(
             model=self.model,
-            temperature=self.temperature,
+            **extra,
             messages=[{"role": "system", "content": system}, {"role": "user", "content": user}],
             response_format={"type": "json_schema", "json_schema": {"name": name, "strict": True, "schema": schema}},
             extra_body={"provider": {"require_parameters": True}},

@@ -60,8 +60,9 @@ _UMLAUT = str.maketrans({"ä": "ae", "ö": "oe", "ü": "ue", "ß": "ss"})
 
 
 def fold(text: str) -> str:
-    """Lowercase, umlauts -> ae/oe/ue/ss, strip other accents."""
-    text = text.lower().translate(_UMLAUT)
+    """Lowercase, umlauts -> ae/oe/ue/ss, strip other accents. NFC first: some pages write
+    "ü" as u + combining diaeresis."""
+    text = unicodedata.normalize("NFC", text).lower().translate(_UMLAUT)
     text = unicodedata.normalize("NFKD", text)
     return "".join(c for c in text if not unicodedata.combining(c))
 

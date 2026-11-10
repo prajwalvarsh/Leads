@@ -66,6 +66,18 @@ CREATE TABLE IF NOT EXISTS company (
 CREATE TABLE IF NOT EXISTS company_member (company_id VARCHAR, candidate_id VARCHAR PRIMARY KEY);
 -- geo: Nominatim results, cached forever (rule 4)
 CREATE TABLE IF NOT EXISTS geocode (query VARCHAR PRIMARY KEY, lat DOUBLE, lon DOUBLE, display VARCHAR, fetched_at TIMESTAMP);
+-- Task 2: KPIs per confirmed company, and the evidence for every kept value
+CREATE TABLE IF NOT EXISTS kpi (
+    company_id VARCHAR PRIMARY KEY, units_managed INTEGER, units_managed_text VARCHAR, segments VARCHAR,
+    is_housing_company VARCHAR, metering_provider VARCHAR, remote_reading_mentioned VARCHAR, digital_tools VARCHAR,
+    decision_maker VARCHAR, decision_maker_role VARCHAR, personal_email VARCHAR, email_basis VARCHAR,
+    fields_with_evidence INTEGER, run_id VARCHAR
+);
+CREATE TABLE IF NOT EXISTS priority (company_id VARCHAR PRIMARY KEY, priority VARCHAR, why VARCHAR);
+CREATE TABLE IF NOT EXISTS linkedin (
+    company_id VARCHAR PRIMARY KEY, person VARCHAR, query VARCHAR, url VARCHAR, title VARCHAR, run_id VARCHAR
+);
+CREATE TABLE IF NOT EXISTS kpi_evidence (company_id VARCHAR, field VARCHAR, value VARCHAR, quote VARCHAR, url VARCHAR);
 -- Review queue: one row per reason a stage found (classify/investigate read it).
 CREATE TABLE IF NOT EXISTS review (candidate_id VARCHAR, stage VARCHAR, reason VARCHAR);
 CREATE TABLE IF NOT EXISTS excluded (candidate_id VARCHAR, reason VARCHAR);

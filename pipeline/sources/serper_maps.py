@@ -73,6 +73,26 @@ def should_fetch_next(page: int, results: int, new_places: int, max_pages: int, 
     return results > 0 and new_places >= min_new and page < max_pages
 
 
+def credits_left(con: duckdb.DuckDBPyConnection, total: int) -> int:
+    """Serper credits left of the one-time total (all stages count against it)."""
+    used = int(con.execute("SELECT coalesce(sum(calls), 0) FROM api_usage WHERE api = 'serper'").fetchone()[0])
+    return max(0, total - used)
+
+
+def skip_reason(con: duckdb.DuckDBPyConnection, total: int, needed: int) -> str | None:
+    """Why a Serper step must be skipped (no key, or fewer credits left than it needs), else None."""
+    if not env("SERPER_API_KEY"):
+        return "SERPER_API_KEY missing in .env"
+    left = credits_left(con, total)
+    if left < needed:
+        return f"{left} Serper credits left, needs {needed}"
+    return None
+
+
+class _Temporary(RuntimeError):
+    """A Serper server error worth retrying (429/5xx)."""
+
+
 class SerperClient:
     def __init__(self, budget: Budget) -> None:
         key = env("SERPER_API_KEY")
@@ -84,13 +104,16 @@ class SerperClient:
         self.credits = 0
 
     @retry(
-        retry=retry_if_exception_type(httpx.TransportError),
+        retry=retry_if_exception_type((httpx.TransportError, _Temporary)),
         stop=stop_after_attempt(3),
-        wait=wait_exponential(multiplier=2, max=20),
+        wait=wait_exponential(multiplier=10, max=40),   # Serper's 502 page says "try again in 30 seconds"
         reraise=True,
     )
     def _post(self, url: str, body: dict) -> httpx.Response:
-        return self.http.post(url, json=body)
+        r = self.http.post(url, json=body)
+        if r.status_code in (429, 500, 502, 503, 504):
+            raise _Temporary(f"Serper error {r.status_code}")
+        return r
 
     def maps(self, q: str, point: GridPoint, page: int, zoom: int) -> dict:
         return self._call(URL, {"q": q, "ll": point.ll(zoom), "gl": "de", "hl": "de", "page": page})

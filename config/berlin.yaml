@@ -46,6 +46,8 @@ caps:
   llm_extract: 1200       # LLM calls per run, per stage (proposed caps, not yet confirmed by the user)
   llm_classify: 1300
   llm_agent: 800
+  llm_check: 50
+  llm_kpi: 800            # Task 2: one call per confirmed company, <= 1 retry
   llm_month: 10000        # all LLM calls in a calendar month
 
 # OpenRouter slugs per role (user choice 2026-11-09: gpt-4o-mini; structured outputs verified).
@@ -54,8 +56,9 @@ models:
   extract: openai/gpt-4o-mini
   classify: openai/gpt-4o-mini
   agent: openai/gpt-4o-mini
-  check: null
-prompts: {extract: 1, classify: 2, agent: 1}
+  check: openai/gpt-4o-mini   # user choice; NOTE spec wants a different family from extract
+  kpi: openai/gpt-4o-mini     # Task 2; default = same model as extract
+prompts: {extract: 1, classify: 2, agent: 1, kpi: 1}
 llm:
   temperature: 0
   max_text_chars: 12000   # page text sent to the model is cut here
@@ -195,3 +198,45 @@ bezirke:
   Steglitz-Zehlendorf: [Dahlem, Lankwitz, Lichterfelde, Nikolassee, Steglitz, Wannsee, Zehlendorf]
   Tempelhof-Schöneberg: [Friedenau, Lichtenrade, Mariendorf, Marienfelde, Schöneberg, Tempelhof]
   Treptow-Köpenick: [Adlershof, Alt-Treptow, Altglienicke, Baumschulenweg, Bohnsdorf, Friedrichshagen, Grünau, Johannisthal, Köpenick, Müggelheim, Niederschöneweide, Oberschöneweide, Plänterwald, Rahnsdorf, Schmöckwitz]
+
+# ---------------- Task 2 ----------------
+crawl_more:                 # up to 3 more pages per confirmed company (team, jobs, references)
+  team_words: [team, ansprechpartner, mitarbeiter, unser team, über uns, ueber-uns]
+  jobs_words: [karriere, jobs, stellenangebote, stellenanzeigen, stellen, career]
+  references_words: [referenzen, objekte, leistungen, verwaltungsobjekte]
+  use_tavily: false         # Task 2: no new paid calls for pages
+
+# Score weights (Task 2). Also written to the sheet's Weights tab, where the formulas read them.
+weights:
+  units_per_employee: 80        # estimate: managed units per employee when units are not stated
+  default_units: 300            # units for companies with neither units nor employees known
+  eur_per_unit_year: 25         # PLACEHOLDER: Heidi's real revenue per unit and year goes here
+  base: 0.15                    # base probability that a company switches provider
+  no_remote_reading: 0.10       # no mention of radio meters / remote reading -> retrofit need by 31.12.2026
+  no_provider_named: 0.05       # no metering provider named -> less visible lock-in
+  hiring: 0.05                  # growing; billing workload
+  tenant_portal: 0.05           # digitally mature; values dashboards
+  association_member: 0.05      # professional; VDIV is a warm channel
+  owner_managed: 0.05           # Inhaber/owner decides quickly
+  p_min: 0.05
+  p_max: 0.60
+  segment_weg_miet: 1.0
+  segment_mixed: 0.7
+  segment_se_only: 0.5
+  segment_gewerbe_only: 0.3
+  tier_a_share: 0.15            # top 15% by expected revenue (with data_confidence >= tier_a_min_confidence) -> A
+  tier_b_share: 0.30            # next 30% -> B, rest C
+  tier_a_min_confidence: 0.40
+
+kpi:
+  role_email_prefixes: [info, kontakt, contact, office, mail, email, verwaltung, hausverwaltung, buchhaltung,
+                        service, post, hallo, hello, team, empfang, zentrale, vermietung, technik, bewerbung,
+                        jobs, karriere, datenschutz, impressum, webmaster, admin, support, anfrage, anfragen,
+                        rechnung, rechnungen, mieter, eigentuemer, weg, notfall, buero, sekretariat, objekte]
+
+priority:                   # rules in docs/task2.md, checked top to bottom
+  low_units_below: 30
+  high_units_min: 200
+
+linkedin:
+  stop_below_credits: 20    # stop searching when remaining Serper credits drop below this
