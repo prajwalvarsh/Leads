@@ -300,6 +300,8 @@ def run_resolve(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
         "searches_by_tier": {"2+_sources": searched_tiers[0], "keyword": searched_tiers[1], "rest": searched_tiers[2]},
         "search_hits": hits,
         "search_cap_credits": search_cap,
+        "serper_search": ("skipped: no Serper credits above the reserve" if to_search and search_cap == 0
+                          else "ran" if searches else "not needed"),
         "from_google": sum(1 for r in rows.values() if r[0] and r[4]),
         "place_details_calls": 0,   # Places disabled
     }

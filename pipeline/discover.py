@@ -113,8 +113,16 @@ def run_discover(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
 
     caps = ctx.cfg["caps"]
 
-    # 1. Serper Maps
-    if wanted("serper_maps"):
+    # 1. Serper Maps. A sweep is sized to caps.serper_credits; with fewer credits left it is
+    #    skipped (logged, not a failure) and the other sources still run.
+    sm_skip = serper_maps.skip_reason(ctx.con, caps["serper_total"], caps["serper_credits"]) \
+        if wanted("serper_maps") else None
+    if sm_skip:
+        per_source["serper_maps"] = "skipped"
+        res.counts["serper_maps.skipped"] = sm_skip
+        ctx.log(STAGE, "serper_maps.skipped", sm_skip)
+        print(f"[discover] serper_maps: skipped ({sm_skip})")
+    elif wanted("serper_maps"):
         sm = ctx.cfg["serper_maps"]
         budget = Budget(ctx.con, "serper", caps["serper_credits"], caps["serper_total"], all_time=True)
         try:
@@ -193,7 +201,7 @@ def run_discover(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
             record("associations", save(ctx, cands))
 
     # Overlap of Serper Maps with every other source (needs serper_maps_tmp, so only in this run)
-    if wanted("serper_maps"):
+    if wanted("serper_maps") and not sm_skip:
         excluded = ctx.cfg["shared_hosts"] + ctx.cfg["portal_domains"]
         sm_recs = overlap.serper_records(ctx.con, excluded)
         if sm_recs:
