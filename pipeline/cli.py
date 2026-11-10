@@ -23,10 +23,7 @@ from pipeline.extract import run_extract
 from pipeline.geo import run_geo
 from pipeline.investigate import run_investigate
 from pipeline.resolve import run_resolve
-
-STAGES: list[Callable[[Ctx, dict], StageResult]] = [
-    run_discover, run_resolve, run_crawl, run_extract, run_classify, run_investigate, run_dedupe, run_geo, run_export,
-]
+from pipeline.stages import STAGES, run_stages
 
 app = typer.Typer(add_completion=False, no_args_is_help=True)
 sys.stdout.reconfigure(line_buffering=True)  # progress lines show up in log files while a stage runs
@@ -44,9 +41,7 @@ def _execute(stage_fn: Callable[[Ctx, dict], StageResult], as_json: bool, mode: 
     ctx = make_ctx(params)
     try:
         with RunLock(ctx.run_id):
-            ctx.log("run", "start", json.dumps({"stage": stage_fn.__name__, "params": params}))
-            result = stage_fn(ctx, params)
-            ctx.log("run", "end", result.status)
+            result = run_stages(ctx, [stage_fn], params)[1][0]
     except RunLocked as e:
         result = StageResult(run_id=ctx.run_id, stage=stage_fn.__name__.removeprefix("run_"),
                              status="failed", errors=[str(e)]).finish()
@@ -124,6 +119,41 @@ def export(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = Pa
     _execute(run_export, as_json, mode, params)
 
 
+@app.command()
+def spotcheck(as_json: bool = JsonOpt, params: str | None = ParamsOpt) -> None:
+    """Dev: independent spot check of 20 confirmed rows (results in eval/spotcheck_results.json)."""
+    from pipeline.spotcheck import run_spotcheck
+    _execute(run_spotcheck, as_json, "full", params)
+
+
+@app.command(name="crawl-more")
+def crawl_more(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Task 2: team / jobs / references pages for confirmed companies."""
+    from pipeline.crawl_more import run_crawl_more
+    _execute(run_crawl_more, as_json, mode, params)
+
+
+@app.command(name="kpi-extract")
+def kpi_extract(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Task 2: KPIs per confirmed company (one LLM call each, evidence-checked)."""
+    from pipeline.kpi import run_kpi_extract
+    _execute(run_kpi_extract, as_json, mode, params)
+
+
+@app.command()
+def priority(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Task 2: High / Medium / Low per confirmed company, with a why line."""
+    from pipeline.priority import run_priority
+    _execute(run_priority, as_json, mode, params)
+
+
+@app.command()
+def linkedin(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """Task 2: one Serper search per decision maker, High priority first."""
+    from pipeline.linkedin import run_linkedin
+    _execute(run_linkedin, as_json, mode, params)
+
+
 @app.command(name="serper-pilot")
 def serper_pilot(as_json: bool = JsonOpt, params: str | None = ParamsOpt) -> None:
     """Dev: 5-point Serper Maps pilot; reports credits and the spacing that fits the cap."""
@@ -155,21 +185,15 @@ def serper_sample() -> None:
 
 @app.command(name="all")
 def run_all(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
-    """Full run: every stage in order under one run_id and one lock; stops at the first failure."""
+    """Full run: every stage (Task 1 and Task 2) in order under one run_id and one lock; stops at the first failure."""
     p: dict[str, Any] = json.loads(params) if params else {}
     p.setdefault("mode", mode)
     ctx = make_ctx(p)
     failed = False
     try:
         with RunLock(ctx.run_id):
-            ctx.log("run", "start", json.dumps({"stage": "all", "params": p}))
-            for fn in STAGES:
-                result = fn(ctx, p)
-                _print(result, as_json)
-                if result.status == "failed":
-                    failed = True
-                    break
-            ctx.log("run", "end", "failed" if failed else "ok")
+            status, _ = run_stages(ctx, list(STAGES.values()), p, on_result=lambda r: _print(r, as_json))
+            failed = status == "failed"
     except RunLocked as e:
         _print(StageResult(run_id=ctx.run_id, stage="all", status="failed", errors=[str(e)]).finish(), as_json)
         failed = True
