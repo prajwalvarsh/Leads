@@ -15,8 +15,7 @@ and 63 LinkedIn profiles. Every value in the sheet keeps its source URL and a ve
 quote. A blind spot check against 20 random Impressum pages, read by a separate model,
 matched 18–19 of 19 rows on every field (`docs/spotcheck.md`).
 
-- **Google Sheet:** https://docs.google.com/spreadsheets/d/1z1ZpSEbCIirkDCNluaO7rKY9KJVOdo97eDX6Q7Q-qaM/edit
-- **Approach doc:** _link to be added_
+
 
 ## How it works
 
