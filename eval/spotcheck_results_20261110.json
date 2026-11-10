@@ -1,0 +1,1258 @@
+{
+ "seed": 20261110,
+ "model": "openai/gpt-4o-mini",
+ "sample": [
+  "54d8624b8fc7",
+  "beae0d006b6a",
+  "362a6ab41140",
+  "a7c770b5973b",
+  "f70269a58c13",
+  "d111c422aeb5",
+  "d1c5762e3b99",
+  "8d6dd40e611c",
+  "d2b9dec3d0f0",
+  "c22a2d8e3036",
+  "6ad35a773515",
+  "58a068765604",
+  "386aca30298e",
+  "a6aeb8597016",
+  "5a8bbc8c58c8",
+  "41d269d046e9",
+  "ecafea6ee9a2",
+  "9cc9e982343e",
+  "a0710dbd7278",
+  "73fb59da4a10"
+ ],
+ "mismatches": [
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "company_name",
+   "sheet": "Nstra Domus Hausverwaltung GmbH",
+   "check": "Nostra Domus Hausverwaltung GmbH",
+   "match": "no",
+   "quote": "Firma\nNstra Domus Hausverwaltung GmbH"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "phone",
+   "sheet": "",
+   "check": "030 - 364 280 150",
+   "match": "no",
+   "quote": "Tel. 030 - 364 280 150"
+  }
+ ],
+ "table": [
+  {
+   "row": 1,
+   "company_id": "54d8624b8fc7",
+   "url": "https://mms-hv.de/impressum/",
+   "field": "company_name",
+   "sheet": "MMS Hausverwaltung GmbH",
+   "check": "MMS Hausverwaltung GmbH",
+   "match": "yes",
+   "quote": "MMS Hausverwaltung GmbH"
+  },
+  {
+   "row": 1,
+   "company_id": "54d8624b8fc7",
+   "url": "https://mms-hv.de/impressum/",
+   "field": "street",
+   "sheet": "Drakestraße 66",
+   "check": "Drakestraße 66",
+   "match": "yes",
+   "quote": "Drakestraße 66"
+  },
+  {
+   "row": 1,
+   "company_id": "54d8624b8fc7",
+   "url": "https://mms-hv.de/impressum/",
+   "field": "postcode",
+   "sheet": "12205",
+   "check": "12205",
+   "match": "yes",
+   "quote": "12205"
+  },
+  {
+   "row": 1,
+   "company_id": "54d8624b8fc7",
+   "url": "https://mms-hv.de/impressum/",
+   "field": "phone",
+   "sheet": "+493053213011",
+   "check": "030 53213011",
+   "match": "yes",
+   "quote": "Telefon 030 53213011"
+  },
+  {
+   "row": 1,
+   "company_id": "54d8624b8fc7",
+   "url": "https://mms-hv.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg HRB 212991 B",
+   "check": "HRB 212991 B",
+   "match": "yes",
+   "quote": "HRB 212991 B"
+  },
+  {
+   "row": 1,
+   "company_id": "54d8624b8fc7",
+   "url": "https://mms-hv.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "MMS Hausverwaltung GmbH"
+  },
+  {
+   "row": 2,
+   "company_id": "beae0d006b6a",
+   "url": "https://www.domesticus-immobilien.de/impressum",
+   "field": "company_name",
+   "sheet": "DOMESTICUS Immobilien UG (haftungsbeschränkt)",
+   "check": "DOMESTICUS Immobilien UG (haftungsbeschränkt)",
+   "match": "yes",
+   "quote": "DOMESTICUS Immobilien UG (haftungsbeschränkt)"
+  },
+  {
+   "row": 2,
+   "company_id": "beae0d006b6a",
+   "url": "https://www.domesticus-immobilien.de/impressum",
+   "field": "street",
+   "sheet": "Heerstraße 18-20",
+   "check": "Heerstraße 18-20",
+   "match": "yes",
+   "quote": "Heerstraße 18-20"
+  },
+  {
+   "row": 2,
+   "company_id": "beae0d006b6a",
+   "url": "https://www.domesticus-immobilien.de/impressum",
+   "field": "postcode",
+   "sheet": "14052",
+   "check": "14052",
+   "match": "yes",
+   "quote": "14052"
+  },
+  {
+   "row": 2,
+   "company_id": "beae0d006b6a",
+   "url": "https://www.domesticus-immobilien.de/impressum",
+   "field": "phone",
+   "sheet": "+4917643607192",
+   "check": "+49 176 43607192",
+   "match": "yes",
+   "quote": "+49 176 43607192"
+  },
+  {
+   "row": 2,
+   "company_id": "beae0d006b6a",
+   "url": "https://www.domesticus-immobilien.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 270272 B",
+   "check": "HRB 270272 B",
+   "match": "yes",
+   "quote": "Handelsregister-Nr.: HRB 270272 B"
+  },
+  {
+   "row": 2,
+   "company_id": "beae0d006b6a",
+   "url": "https://www.domesticus-immobilien.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Zertifizierte Hausverwaltung gemäß § 7 ZertVerwV und § 26a WEG."
+  },
+  {
+   "row": 3,
+   "company_id": "362a6ab41140",
+   "url": "https://www.hbk-verwaltung.de/impressum",
+   "field": "company_name",
+   "sheet": "Hanseatische Berlin-Kontor Verwaltungsgesellschaft mbH",
+   "check": "Hanseatische Berlin-Kontor Verwaltungsgesellschaft mbH",
+   "match": "yes",
+   "quote": "Hanseatische Berlin-Kontor Verwaltungsgesellschaft mbH"
+  },
+  {
+   "row": 3,
+   "company_id": "362a6ab41140",
+   "url": "https://www.hbk-verwaltung.de/impressum",
+   "field": "street",
+   "sheet": "Torstraße 222",
+   "check": "Torstraße 222",
+   "match": "yes",
+   "quote": "Torstraße 222"
+  },
+  {
+   "row": 3,
+   "company_id": "362a6ab41140",
+   "url": "https://www.hbk-verwaltung.de/impressum",
+   "field": "postcode",
+   "sheet": "10115",
+   "check": "10115",
+   "match": "yes",
+   "quote": "10115"
+  },
+  {
+   "row": 3,
+   "company_id": "362a6ab41140",
+   "url": "https://www.hbk-verwaltung.de/impressum",
+   "field": "phone",
+   "sheet": "+49302844944",
+   "check": "+49-030-284494-4",
+   "match": "yes",
+   "quote": "Telefon: +49-030-284494-4"
+  },
+  {
+   "row": 3,
+   "company_id": "362a6ab41140",
+   "url": "https://www.hbk-verwaltung.de/impressum",
+   "field": "register_number",
+   "sheet": "AG Charlottenburg HRB 76523",
+   "check": "HRB 76523",
+   "match": "yes",
+   "quote": "Registernummer: HRB 76523"
+  },
+  {
+   "row": 3,
+   "company_id": "362a6ab41140",
+   "url": "https://www.hbk-verwaltung.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Wir besitzen seit 03.04.19 die Erlaubnis gem. § 34 c GewO."
+  },
+  {
+   "row": 4,
+   "company_id": "a7c770b5973b",
+   "url": "https://www.gartenstadt-atlantic.de/",
+   "field": "company_name",
+   "sheet": "Gartenstadt Atlantic AG",
+   "check": "Gartenstadt Atlantic AG",
+   "match": "yes",
+   "quote": "Gartenstadt Atlantic AG"
+  },
+  {
+   "row": 4,
+   "company_id": "a7c770b5973b",
+   "url": "https://www.gartenstadt-atlantic.de/",
+   "field": "street",
+   "sheet": "Bellermannstraße 22",
+   "check": "Bellermannstraße 22",
+   "match": "yes",
+   "quote": "Bellermannstraße 22"
+  },
+  {
+   "row": 4,
+   "company_id": "a7c770b5973b",
+   "url": "https://www.gartenstadt-atlantic.de/",
+   "field": "postcode",
+   "sheet": "13357",
+   "check": "13357",
+   "match": "yes",
+   "quote": "13357"
+  },
+  {
+   "row": 4,
+   "company_id": "a7c770b5973b",
+   "url": "https://www.gartenstadt-atlantic.de/",
+   "field": "phone",
+   "sheet": "+49304998813",
+   "check": "030 / 499881-3",
+   "match": "yes",
+   "quote": "Telefon: 030 / 499881-3"
+  },
+  {
+   "row": 4,
+   "company_id": "a7c770b5973b",
+   "url": "https://www.gartenstadt-atlantic.de/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 3199",
+   "check": "Amtsgericht Charlottenburg HRB 3199",
+   "match": "yes",
+   "quote": "Register Nr. Amtsgericht Charlottenburg HRB 3199"
+  },
+  {
+   "row": 4,
+   "company_id": "a7c770b5973b",
+   "url": "https://www.gartenstadt-atlantic.de/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Leitung der Hausverwaltung"
+  },
+  {
+   "row": 5,
+   "company_id": "f70269a58c13",
+   "url": "https://rwhv-berlin.de/impressum/",
+   "field": "company_name",
+   "sheet": "Robert Werner Hausverwaltungen GmbH",
+   "check": "Robert Werner Hausverwaltungen GmbH",
+   "match": "yes",
+   "quote": "Robert Werner Hausverwaltungen GmbH"
+  },
+  {
+   "row": 5,
+   "company_id": "f70269a58c13",
+   "url": "https://rwhv-berlin.de/impressum/",
+   "field": "street",
+   "sheet": "Pestalozzistr. 2",
+   "check": "Pestalozzistr. 2",
+   "match": "yes",
+   "quote": "Pestalozzistr. 2"
+  },
+  {
+   "row": 5,
+   "company_id": "f70269a58c13",
+   "url": "https://rwhv-berlin.de/impressum/",
+   "field": "postcode",
+   "sheet": "10625",
+   "check": "10625",
+   "match": "yes",
+   "quote": "10625"
+  },
+  {
+   "row": 5,
+   "company_id": "f70269a58c13",
+   "url": "https://rwhv-berlin.de/impressum/",
+   "field": "phone",
+   "sheet": "+49303129839",
+   "check": "+49 (0)30 / 312 98 39",
+   "match": "yes",
+   "quote": "+49 (0)30 / 312 98 39"
+  },
+  {
+   "row": 5,
+   "company_id": "f70269a58c13",
+   "url": "https://rwhv-berlin.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 275320 B",
+   "check": "HRB-Nr. 275320 B",
+   "match": "yes",
+   "quote": "HRB-Nr. 275320 B"
+  },
+  {
+   "row": 5,
+   "company_id": "f70269a58c13",
+   "url": "https://rwhv-berlin.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Robert Werner Hausverwaltungen GmbH"
+  },
+  {
+   "row": 6,
+   "company_id": "d111c422aeb5",
+   "url": "https://abg-paradies.de/impressum/",
+   "field": "company_name",
+   "sheet": "Arbeiter-Baugenossenschaft Paradies e.G.",
+   "check": "Arbeiter-Baugenossenschaft Paradies e.G.",
+   "match": "yes",
+   "quote": "Arbeiter-Baugenossenschaft Paradies e.G."
+  },
+  {
+   "row": 6,
+   "company_id": "d111c422aeb5",
+   "url": "https://abg-paradies.de/impressum/",
+   "field": "street",
+   "sheet": "Paradiesstr. 258",
+   "check": "Paradiesstr. 258",
+   "match": "yes",
+   "quote": "Paradiesstr. 258"
+  },
+  {
+   "row": 6,
+   "company_id": "d111c422aeb5",
+   "url": "https://abg-paradies.de/impressum/",
+   "field": "postcode",
+   "sheet": "12526",
+   "check": "12526",
+   "match": "yes",
+   "quote": "12526 Berlin"
+  },
+  {
+   "row": 6,
+   "company_id": "d111c422aeb5",
+   "url": "https://abg-paradies.de/impressum/",
+   "field": "phone",
+   "sheet": "+493022605260",
+   "check": "+49 30 2260526-0",
+   "match": "yes",
+   "quote": "Telefon:\n+49 30 2260526-0"
+  },
+  {
+   "row": 6,
+   "company_id": "d111c422aeb5",
+   "url": "https://abg-paradies.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg GnR 494",
+   "check": "94 GnR 494 Nz.",
+   "match": "yes",
+   "quote": "Registernummer: 94 GnR 494 Nz."
+  },
+  {
+   "row": 6,
+   "company_id": "d111c422aeb5",
+   "url": "https://abg-paradies.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Die Genossenschaft weist gemäß § 36 Verbraucherstreitbeilegungsgesetz darauf hin, dass sie zur Teilnahme an einem Streitbeteiligungsverfahren vor einer Verbraucherschlichtungsstelle nicht verpflichtet ist."
+  },
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "company_name",
+   "sheet": "Nstra Domus Hausverwaltung GmbH",
+   "check": "Nostra Domus Hausverwaltung GmbH",
+   "match": "no",
+   "quote": "Firma\nNstra Domus Hausverwaltung GmbH"
+  },
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "street",
+   "sheet": "Wielandstr. 5b",
+   "check": "Wielandstr. 5b",
+   "match": "yes",
+   "quote": "Adresse\nWielandstr. 5b"
+  },
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "postcode",
+   "sheet": "10625",
+   "check": "10625",
+   "match": "yes",
+   "quote": "10625 Berlin"
+  },
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "phone",
+   "sheet": "+49303434990",
+   "check": "030 3434990",
+   "match": "yes",
+   "quote": "Telefon\n030 3434990"
+  },
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg (Berlin) HRB 98578 B",
+   "check": "HRB 98578 B",
+   "match": "yes",
+   "quote": "Handelsregister\nHRB 98578 B"
+  },
+  {
+   "row": 7,
+   "company_id": "d1c5762e3b99",
+   "url": "https://nostra-domus.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Leistungen\nWEG-Verwaltung\nMiethausverwaltung\nSondereigentumsverwaltung"
+  },
+  {
+   "row": 8,
+   "company_id": "8d6dd40e611c",
+   "url": "https://www.hepa-hausverwaltung.de/impressum",
+   "field": "company_name",
+   "sheet": "HEPA Immobilien GmbH",
+   "check": "HEPA Immobilien GmbH",
+   "match": "yes",
+   "quote": "HEPA Immobilien GmbH"
+  },
+  {
+   "row": 8,
+   "company_id": "8d6dd40e611c",
+   "url": "https://www.hepa-hausverwaltung.de/impressum",
+   "field": "street",
+   "sheet": "Kantstraße 154a",
+   "check": "Kantstraße 154a",
+   "match": "yes",
+   "quote": "Kantstraße 154a"
+  },
+  {
+   "row": 8,
+   "company_id": "8d6dd40e611c",
+   "url": "https://www.hepa-hausverwaltung.de/impressum",
+   "field": "postcode",
+   "sheet": "10623",
+   "check": "10623",
+   "match": "yes",
+   "quote": "10623 Berlin"
+  },
+  {
+   "row": 8,
+   "company_id": "8d6dd40e611c",
+   "url": "https://www.hepa-hausverwaltung.de/impressum",
+   "field": "phone",
+   "sheet": "+4930467268110",
+   "check": "+49 30 467 268 110",
+   "match": "yes",
+   "quote": "Telefon: +49 30 467 268 110"
+  },
+  {
+   "row": 8,
+   "company_id": "8d6dd40e611c",
+   "url": "https://www.hepa-hausverwaltung.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 232654 B",
+   "check": "HRB 232654 B",
+   "match": "yes",
+   "quote": "Registernummer: HRB 232654 B"
+  },
+  {
+   "row": 8,
+   "company_id": "8d6dd40e611c",
+   "url": "https://www.hepa-hausverwaltung.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Property Management"
+  },
+  {
+   "row": 9,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "company_name",
+   "sheet": "Werneburg Immobilien",
+   "check": "Werneburg Immobilien",
+   "match": "yes",
+   "quote": "Werneburg Immobilien"
+  },
+  {
+   "row": 9,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "street",
+   "sheet": "Marientaler Straße 24a",
+   "check": "Marientaler Straße 24a",
+   "match": "yes",
+   "quote": "Marientaler Straße 24a"
+  },
+  {
+   "row": 9,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "postcode",
+   "sheet": "12437",
+   "check": "12437",
+   "match": "yes",
+   "quote": "12437"
+  },
+  {
+   "row": 9,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "phone",
+   "sheet": "+493066655666",
+   "check": "+49 (0) 30 666 55 666",
+   "match": "yes",
+   "quote": "Telefon: +49 (0) 30 666 55 666"
+  },
+  {
+   "row": 9,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "register_number",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 9,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Die Gewerbeerlaubnis nach § 34c GewO zur Vermittlung des Abschlusses und zum Nachweis der Gelegenheit zum Abschluss von Verträgen über Grundstücke, grundstücksgleiche Rechte, Wohnräume, Gewerberäume und Darlehen."
+  },
+  {
+   "row": 10,
+   "company_id": "c22a2d8e3036",
+   "url": "https://www.jnv-gmbh.de/ueber-uns/impressum/",
+   "field": "company_name",
+   "sheet": "J. Neumann Verwaltungsgesellschaft mbH",
+   "check": "J. Neumann Verwaltungsgesellschaft mbH",
+   "match": "yes",
+   "quote": "J. Neumann Verwaltungsgesellschaft mbH"
+  },
+  {
+   "row": 10,
+   "company_id": "c22a2d8e3036",
+   "url": "https://www.jnv-gmbh.de/ueber-uns/impressum/",
+   "field": "street",
+   "sheet": "Nibelungenstr. 21",
+   "check": "Nibelungenstr. 21",
+   "match": "yes",
+   "quote": "Nibelungenstr. 21"
+  },
+  {
+   "row": 10,
+   "company_id": "c22a2d8e3036",
+   "url": "https://www.jnv-gmbh.de/ueber-uns/impressum/",
+   "field": "postcode",
+   "sheet": "13465",
+   "check": "13465",
+   "match": "yes",
+   "quote": "13465"
+  },
+  {
+   "row": 10,
+   "company_id": "c22a2d8e3036",
+   "url": "https://www.jnv-gmbh.de/ueber-uns/impressum/",
+   "field": "phone",
+   "sheet": "+493027594088",
+   "check": "030 – 27 59 40 88",
+   "match": "yes",
+   "quote": "Telefon: 030 – 27 59 40 88 (AB)"
+  },
+  {
+   "row": 10,
+   "company_id": "c22a2d8e3036",
+   "url": "https://www.jnv-gmbh.de/ueber-uns/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin HRB 80093",
+   "check": "HR B 80093",
+   "match": "yes",
+   "quote": "Registernummer: HR B 80093"
+  },
+  {
+   "row": 10,
+   "company_id": "c22a2d8e3036",
+   "url": "https://www.jnv-gmbh.de/ueber-uns/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Haus-, Wohnungs- und WEG-Verwaltung in Berlin und Brandenburg"
+  },
+  {
+   "row": 11,
+   "company_id": "6ad35a773515",
+   "url": "https://www.wg-altglienicke.de/impressum",
+   "field": "company_name",
+   "sheet": "Wohnungsgenossenschaft Altglienicke eG",
+   "check": "Wohnungsgenossenschaft Altglienicke eG",
+   "match": "yes",
+   "quote": "Wohnungsgenossenschaft Altglienicke eG"
+  },
+  {
+   "row": 11,
+   "company_id": "6ad35a773515",
+   "url": "https://www.wg-altglienicke.de/impressum",
+   "field": "street",
+   "sheet": "Schönefelder Chaussee 219 A",
+   "check": "Schönefelder Chaussee 219 A",
+   "match": "yes",
+   "quote": "Schönefelder Chaussee 219 A"
+  },
+  {
+   "row": 11,
+   "company_id": "6ad35a773515",
+   "url": "https://www.wg-altglienicke.de/impressum",
+   "field": "postcode",
+   "sheet": "12524",
+   "check": "12524",
+   "match": "yes",
+   "quote": "12524"
+  },
+  {
+   "row": 11,
+   "company_id": "6ad35a773515",
+   "url": "https://www.wg-altglienicke.de/impressum",
+   "field": "phone",
+   "sheet": "+49306780680",
+   "check": "+49 30 6780680",
+   "match": "yes",
+   "quote": "+49 30 6780680"
+  },
+  {
+   "row": 11,
+   "company_id": "6ad35a773515",
+   "url": "https://www.wg-altglienicke.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin - Charlottenburg GnR 443 B",
+   "check": "GnR 443 B",
+   "match": "yes",
+   "quote": "Registernummer: GnR 443 B"
+  },
+  {
+   "row": 11,
+   "company_id": "6ad35a773515",
+   "url": "https://www.wg-altglienicke.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Wohnungsgenossenschaft Altglienicke eG"
+  },
+  {
+   "row": 12,
+   "company_id": "58a068765604",
+   "url": "https://habitalix.de/impressum",
+   "field": "company_name",
+   "sheet": "ImMa Solutions GmbH",
+   "check": "ImMa Solutions GmbH",
+   "match": "yes",
+   "quote": "Marke der ImMa Solutions GmbH"
+  },
+  {
+   "row": 12,
+   "company_id": "58a068765604",
+   "url": "https://habitalix.de/impressum",
+   "field": "street",
+   "sheet": "Mierendorffstrasse 21",
+   "check": "Mierendorffstrasse 21",
+   "match": "yes",
+   "quote": "Mierendorffstrasse 21"
+  },
+  {
+   "row": 12,
+   "company_id": "58a068765604",
+   "url": "https://habitalix.de/impressum",
+   "field": "postcode",
+   "sheet": "10589",
+   "check": "10589",
+   "match": "yes",
+   "quote": "10589 Berlin"
+  },
+  {
+   "row": 12,
+   "company_id": "58a068765604",
+   "url": "https://habitalix.de/impressum",
+   "field": "phone",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 12,
+   "company_id": "58a068765604",
+   "url": "https://habitalix.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin Charlottenburg HRB 221260",
+   "check": "HRB 221260",
+   "match": "yes",
+   "quote": "Amtsgericht Berlin Charlottenburg\nHRB 221260"
+  },
+  {
+   "row": 12,
+   "company_id": "58a068765604",
+   "url": "https://habitalix.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Digitale Hausverwaltung\nSondereigentumsverwaltung\nMietshausverwaltung"
+  },
+  {
+   "row": 13,
+   "company_id": "386aca30298e",
+   "url": "https://www.hilpert-hausverwaltung.de/imprint",
+   "field": "company_name",
+   "sheet": "Wilhelm Hilpert Hausverwaltung GmbH",
+   "check": "",
+   "match": "n/a",
+   "quote": "check failed: None"
+  },
+  {
+   "row": 13,
+   "company_id": "386aca30298e",
+   "url": "https://www.hilpert-hausverwaltung.de/imprint",
+   "field": "street",
+   "sheet": "Deutschmeisterstraße 16",
+   "check": "",
+   "match": "n/a",
+   "quote": "check failed: None"
+  },
+  {
+   "row": 13,
+   "company_id": "386aca30298e",
+   "url": "https://www.hilpert-hausverwaltung.de/imprint",
+   "field": "postcode",
+   "sheet": "10367",
+   "check": "",
+   "match": "n/a",
+   "quote": "check failed: None"
+  },
+  {
+   "row": 13,
+   "company_id": "386aca30298e",
+   "url": "https://www.hilpert-hausverwaltung.de/imprint",
+   "field": "phone",
+   "sheet": "+49304438430",
+   "check": "",
+   "match": "n/a",
+   "quote": "check failed: None"
+  },
+  {
+   "row": 13,
+   "company_id": "386aca30298e",
+   "url": "https://www.hilpert-hausverwaltung.de/imprint",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 65599",
+   "check": "",
+   "match": "n/a",
+   "quote": "check failed: None"
+  },
+  {
+   "row": 13,
+   "company_id": "386aca30298e",
+   "url": "https://www.hilpert-hausverwaltung.de/imprint",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "",
+   "match": "n/a",
+   "quote": "check failed: None"
+  },
+  {
+   "row": 14,
+   "company_id": "a6aeb8597016",
+   "url": "https://atoz-pm.de/impressum/",
+   "field": "company_name",
+   "sheet": "atoz Property Management GmbH",
+   "check": "atoz Property Management GmbH",
+   "match": "yes",
+   "quote": "atoz Property Management GmbH"
+  },
+  {
+   "row": 14,
+   "company_id": "a6aeb8597016",
+   "url": "https://atoz-pm.de/impressum/",
+   "field": "street",
+   "sheet": "Am Borsigturm 13",
+   "check": "Am Borsigturm 13",
+   "match": "yes",
+   "quote": "Am Borsigturm 13"
+  },
+  {
+   "row": 14,
+   "company_id": "a6aeb8597016",
+   "url": "https://atoz-pm.de/impressum/",
+   "field": "postcode",
+   "sheet": "13507",
+   "check": "13507",
+   "match": "yes",
+   "quote": "13507"
+  },
+  {
+   "row": 14,
+   "company_id": "a6aeb8597016",
+   "url": "https://atoz-pm.de/impressum/",
+   "field": "phone",
+   "sheet": "+4930166380190",
+   "check": "+49 30 – 166 3801 – 90",
+   "match": "yes",
+   "quote": "Fon: +49 30 – 166 3801 – 90"
+  },
+  {
+   "row": 14,
+   "company_id": "a6aeb8597016",
+   "url": "https://atoz-pm.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg (Berlin) HRB 62684 B",
+   "check": "HRB 62684 B",
+   "match": "yes",
+   "quote": "Registernummer: HRB 62684 B"
+  },
+  {
+   "row": 14,
+   "company_id": "a6aeb8597016",
+   "url": "https://atoz-pm.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Kaufmännische Property Management"
+  },
+  {
+   "row": 15,
+   "company_id": "5a8bbc8c58c8",
+   "url": "https://hallotheo.de/impressum",
+   "field": "company_name",
+   "sheet": "hallo theo GmbH",
+   "check": "hallo theo GmbH",
+   "match": "yes",
+   "quote": "hallo theo GmbH"
+  },
+  {
+   "row": 15,
+   "company_id": "5a8bbc8c58c8",
+   "url": "https://hallotheo.de/impressum",
+   "field": "street",
+   "sheet": "Saarbrücker Straße 21",
+   "check": "Saarbrücker Straße 21",
+   "match": "yes",
+   "quote": "Saarbrücker Straße 21, D-10405 Berlin"
+  },
+  {
+   "row": 15,
+   "company_id": "5a8bbc8c58c8",
+   "url": "https://hallotheo.de/impressum",
+   "field": "postcode",
+   "sheet": "10405",
+   "check": "10405",
+   "match": "yes",
+   "quote": "Saarbrücker Straße 21, D-10405 Berlin"
+  },
+  {
+   "row": 15,
+   "company_id": "5a8bbc8c58c8",
+   "url": "https://hallotheo.de/impressum",
+   "field": "phone",
+   "sheet": "+493034043000",
+   "check": "+49 (0) 30 340 430 00",
+   "match": "yes",
+   "quote": "Telefon: +49 (0) 30 340 430 00"
+  },
+  {
+   "row": 15,
+   "company_id": "5a8bbc8c58c8",
+   "url": "https://hallotheo.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin Charlottenburg HRB 253479 B",
+   "check": "HRB 253479 B",
+   "match": "yes",
+   "quote": "Amtsgericht Berlin Charlottenburg, HRB 253479 B"
+  },
+  {
+   "row": 15,
+   "company_id": "5a8bbc8c58c8",
+   "url": "https://hallotheo.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Leistungen\nWEG-Verwaltung\nMietverwaltung\nGewerbeverwaltung"
+  },
+  {
+   "row": 16,
+   "company_id": "41d269d046e9",
+   "url": "https://rem-hv.de/impressum/",
+   "field": "company_name",
+   "sheet": "REM Hausverwaltung GmbH",
+   "check": "REM Hausverwaltung GmbH",
+   "match": "yes",
+   "quote": "REM Hausverwaltung GmbH"
+  },
+  {
+   "row": 16,
+   "company_id": "41d269d046e9",
+   "url": "https://rem-hv.de/impressum/",
+   "field": "street",
+   "sheet": "Kochstraße 28",
+   "check": "Kochstraße 28",
+   "match": "yes",
+   "quote": "Kochstraße 28"
+  },
+  {
+   "row": 16,
+   "company_id": "41d269d046e9",
+   "url": "https://rem-hv.de/impressum/",
+   "field": "postcode",
+   "sheet": "10969",
+   "check": "10969",
+   "match": "yes",
+   "quote": "10969"
+  },
+  {
+   "row": 16,
+   "company_id": "41d269d046e9",
+   "url": "https://rem-hv.de/impressum/",
+   "field": "phone",
+   "sheet": "+4930221847510",
+   "check": "+49 30 22 18 475 10",
+   "match": "yes",
+   "quote": "Tel: +49 30 22 18 475 10"
+  },
+  {
+   "row": 16,
+   "company_id": "41d269d046e9",
+   "url": "https://rem-hv.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 211573 B",
+   "check": "HRB 211573 B",
+   "match": "yes",
+   "quote": "Handelsregister: HRB 211573 B"
+  },
+  {
+   "row": 16,
+   "company_id": "41d269d046e9",
+   "url": "https://rem-hv.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "REM Hausverwaltung GmbH"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "company_name",
+   "sheet": "HAVEO Immobilien GmbH",
+   "check": "HAVEO Immobilien GmbH",
+   "match": "yes",
+   "quote": "HAVEO Immobilien GmbH"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "street",
+   "sheet": "Oranienburger Str. 16",
+   "check": "Oranienburger Str. 16",
+   "match": "yes",
+   "quote": "Oranienburger Str. 16"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "postcode",
+   "sheet": "10178",
+   "check": "10178",
+   "match": "yes",
+   "quote": "10178"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "phone",
+   "sheet": "",
+   "check": "030 - 364 280 150",
+   "match": "no",
+   "quote": "Tel. 030 - 364 280 150"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg HRB 211047 B",
+   "check": "HRB 211047 B",
+   "match": "yes",
+   "quote": "Registernummer: HRB 211047 B"
+  },
+  {
+   "row": 17,
+   "company_id": "ecafea6ee9a2",
+   "url": "https://haveo.de/rechtliches/impressum.php",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "WEG-Verwaltung"
+  },
+  {
+   "row": 18,
+   "company_id": "9cc9e982343e",
+   "url": "https://www.hausverwaltung-berlin.berlin/impressum/index.php",
+   "field": "company_name",
+   "sheet": "Martina Schaale Hausverwaltung",
+   "check": "Martina Schaale Hausverwaltung",
+   "match": "yes",
+   "quote": "Anbieter gemäß § 5 DDG\nMartina Schaale Hausverwaltung"
+  },
+  {
+   "row": 18,
+   "company_id": "9cc9e982343e",
+   "url": "https://www.hausverwaltung-berlin.berlin/impressum/index.php",
+   "field": "street",
+   "sheet": "Holsteinische Straße 58",
+   "check": "Holsteinische Straße 58",
+   "match": "yes",
+   "quote": "Holsteinische Straße 58"
+  },
+  {
+   "row": 18,
+   "company_id": "9cc9e982343e",
+   "url": "https://www.hausverwaltung-berlin.berlin/impressum/index.php",
+   "field": "postcode",
+   "sheet": "12163",
+   "check": "12163",
+   "match": "yes",
+   "quote": "12163"
+  },
+  {
+   "row": 18,
+   "company_id": "9cc9e982343e",
+   "url": "https://www.hausverwaltung-berlin.berlin/impressum/index.php",
+   "field": "phone",
+   "sheet": "+493021799960",
+   "check": "+49 (30) 217 999 60",
+   "match": "yes",
+   "quote": "Telefon:\n+49 (30) 217 999 60"
+  },
+  {
+   "row": 18,
+   "company_id": "9cc9e982343e",
+   "url": "https://www.hausverwaltung-berlin.berlin/impressum/index.php",
+   "field": "register_number",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 18,
+   "company_id": "9cc9e982343e",
+   "url": "https://www.hausverwaltung-berlin.berlin/impressum/index.php",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Hausverwaltung"
+  },
+  {
+   "row": 19,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "company_name",
+   "sheet": "rentatect GmbH",
+   "check": "rentatect GmbH",
+   "match": "yes",
+   "quote": "rentatect GmbH"
+  },
+  {
+   "row": 19,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "street",
+   "sheet": "Voigtstraße 36/37",
+   "check": "Voigtstraße 36/37",
+   "match": "yes",
+   "quote": "Adresse: Voigtstraße 36/37"
+  },
+  {
+   "row": 19,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "postcode",
+   "sheet": "10247",
+   "check": "10247",
+   "match": "yes",
+   "quote": "10247 Berlin"
+  },
+  {
+   "row": 19,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "phone",
+   "sheet": "+493034620569",
+   "check": "030 - 34 62 05 69",
+   "match": "yes",
+   "quote": "Telefon: 030 - 34 62 05 69"
+  },
+  {
+   "row": 19,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg HRB 139700 B",
+   "check": "HRB 139700B",
+   "match": "yes",
+   "quote": "Handelsregister: Amtsgericht Berlin-Charlottenburg, HRB 139700B"
+  },
+  {
+   "row": 19,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "GmbH Immobilien & Verwaltungen"
+  },
+  {
+   "row": 20,
+   "company_id": "73fb59da4a10",
+   "url": "https://inwest.de/impressum/",
+   "field": "company_name",
+   "sheet": "in-west Partners GmbH",
+   "check": "in-west Partners GmbH",
+   "match": "yes",
+   "quote": "in-west Partners GmbH"
+  },
+  {
+   "row": 20,
+   "company_id": "73fb59da4a10",
+   "url": "https://inwest.de/impressum/",
+   "field": "street",
+   "sheet": "Markgrafendamm 24 , Haus 16",
+   "check": "Markgrafendamm 24 , Haus 16",
+   "match": "yes",
+   "quote": "Markgrafendamm 24 , Haus 16"
+  },
+  {
+   "row": 20,
+   "company_id": "73fb59da4a10",
+   "url": "https://inwest.de/impressum/",
+   "field": "postcode",
+   "sheet": "10245",
+   "check": "10245",
+   "match": "yes",
+   "quote": "10245 Berlin"
+  },
+  {
+   "row": 20,
+   "company_id": "73fb59da4a10",
+   "url": "https://inwest.de/impressum/",
+   "field": "phone",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 20,
+   "company_id": "73fb59da4a10",
+   "url": "https://inwest.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 246354 B",
+   "check": "HRB 246354 B",
+   "match": "yes",
+   "quote": "Registernummer: HRB 246354 B"
+  },
+  {
+   "row": 20,
+   "company_id": "73fb59da4a10",
+   "url": "https://inwest.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Immobilien"
+  }
+ ],
+ "accuracy": {
+  "company_name": "18/19 (94%)",
+  "street": "19/19 (100%)",
+  "postcode": "19/19 (100%)",
+  "phone": "18/19 (94%)",
+  "register_number": "19/19 (100%)",
+  "is_property_manager": "19/19 (100%)"
+ }
+}

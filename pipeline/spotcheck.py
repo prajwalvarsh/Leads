@@ -83,7 +83,7 @@ def run_spotcheck(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult
     res = StageResult(run_id=ctx.run_id, stage=STAGE)
     rows = ctx.con.execute(
         """SELECT company_id, company_name, street, postcode, phone, register_number, impressum_url, website, decided_by
-           FROM company WHERE tab = 'companies' AND status = 'confirmed' ORDER BY company_id"""
+           FROM company WHERE tab = 'companies' AND status = 'confirmed (website)' ORDER BY company_id"""
     ).fetchall()
     sample = random.Random(seed).sample(rows, min(n, len(rows)))
     texts = asyncio.run(_fetch([r[6] for r in sample]))
@@ -123,7 +123,8 @@ def run_spotcheck(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult
     raw = {"seed": seed, "model": model, "sample": [r[0] for r in sample], "mismatches": mismatches,
            "table": table, "accuracy": accuracy}
     (ROOT / "eval").mkdir(exist_ok=True)
-    (ROOT / "eval" / "spotcheck_results.json").write_text(json.dumps(raw, ensure_ascii=False, indent=1), encoding="utf-8")
+    name = "spotcheck_results.json" if seed == 20261109 else f"spotcheck_results_{seed}.json"   # first check keeps its file
+    (ROOT / "eval" / name).write_text(json.dumps(raw, ensure_ascii=False, indent=1), encoding="utf-8")
     res.counts = {"seed": seed, "rows": len(sample), "fetch_failed": sum(t is None for t in texts),
                   "mismatches": len(mismatches), "accuracy": accuracy, "llm_calls": llm.calls}
     res.api_calls["llm_check"] = llm.calls

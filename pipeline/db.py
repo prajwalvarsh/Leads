@@ -7,6 +7,11 @@ import duckdb
 
 from pipeline.config import DB_PATH
 
+# company.status values on the companies tab (set by the confirm stage)
+CONFIRMED_WEBSITE = "confirmed (website)"   # Impressum-backed; gets KPIs and a priority
+CONFIRMED_LISTING = "confirmed (listing)"   # no website; listed as property manager in a non-Google directory
+REVIEW = "review"
+
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS candidate (
     candidate_id VARCHAR PRIMARY KEY,

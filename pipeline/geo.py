@@ -121,7 +121,7 @@ def run_geo(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
         "by_bezirk": dict(ctx.con.execute(
             "SELECT bezirk, count(*) FROM company WHERE tab = 'companies' AND bezirk IS NOT NULL GROUP BY 1 ORDER BY 1"
         ).fetchall()),
-        "confirmed": ctx.con.execute("SELECT count(*) FROM company WHERE tab = 'companies' AND status = 'confirmed'").fetchone()[0],
+        "confirmed": ctx.con.execute("SELECT count(*) FROM company WHERE tab = 'companies' AND status LIKE 'confirmed%'").fetchone()[0],
         "review": ctx.con.execute("SELECT count(*) FROM company WHERE tab = 'companies' AND status = 'review'").fetchone()[0],
     }
     res.api_calls["nominatim"] = g.calls

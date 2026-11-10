@@ -114,6 +114,13 @@ def geo(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = Param
 
 
 @app.command()
+def confirm(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
+    """After geo: confirmed (website) / confirmed (listing) / review."""
+    from pipeline.confirm import run_confirm
+    _execute(run_confirm, as_json, mode, params)
+
+
+@app.command()
 def export(as_json: bool = JsonOpt, mode: str = ModeOpt, params: str | None = ParamsOpt) -> None:
     """Stage 8: write the Google Sheet, drop transient Google data."""
     _execute(run_export, as_json, mode, params)

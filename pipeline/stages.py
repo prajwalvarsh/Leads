@@ -12,6 +12,7 @@ from collections.abc import Callable
 from typing import Any
 
 from pipeline.classify import run_classify
+from pipeline.confirm import run_confirm
 from pipeline.contract import Ctx, StageResult
 from pipeline.crawl import run_crawl
 from pipeline.crawl_more import run_crawl_more
@@ -38,6 +39,7 @@ STAGES: dict[str, StageFn] = {
     "investigate": run_investigate,
     "dedupe": run_dedupe,
     "geo": run_geo,
+    "confirm": run_confirm,
     "crawl_more": run_crawl_more,
     "kpi_extract": run_kpi_extract,
     "priority": run_priority,

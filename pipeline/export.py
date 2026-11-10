@@ -1,8 +1,8 @@
 """Stage 8: write the Google Sheet and remove all transient Google data.
 
-Tabs, in this order: Leads, Details, KPI definitions, Priority rules, Evidence, Sources, Excluded,
-Not in Berlin, Run log. Leads and Details hold every company on the companies tab (confirmed and
-review). Per tab: clear, one update, freeze the header, filter, auto-size; Leads also freezes the
+Tabs, in this order: Leads, Other finds, Details, KPI definitions, Priority rules, Evidence, Sources,
+Excluded, Not in Berlin, Run log. Leads = confirmed companies (website or listing); Other finds = the
+review rows; Details = every company on the companies tab. Per tab: clear, one update, freeze the header, filter, auto-size; Leads also freezes the
 first column, wraps Why and colours Priority. Afterwards (CLAUDE.md rule 1):
 - website URLs that came from Google Maps are kept only if our own crawl reached that site;
 - resolve details that contain a Google name are cleared;
@@ -15,7 +15,7 @@ from typing import Any
 
 from pipeline.config import ROOT, env
 from pipeline.contract import Ctx, StageResult
-from pipeline.db import GOOGLE_TMP_TABLES, drop_google_tmp
+from pipeline.db import CONFIRMED_LISTING, GOOGLE_TMP_TABLES, drop_google_tmp
 
 STAGE = "export"
 COMPANY_COLS = ["company_id", "company_name", "legal_form", "street", "postcode", "bezirk", "phone", "website",
@@ -66,13 +66,14 @@ def tables(ctx: Ctx) -> dict[str, list[list[Any]]]:
            WHERE stage NOT IN ('run') AND key NOT LIKE '%.skip' AND key <> 'http.skip'
            ORDER BY ts"""
     ).fetchall()
-    leads, details = leads_tables(con)
+    leads, other, details = leads_tables(con)
     evidence = con.execute(
         """SELECT co.company_name, e.company_id, e.field, e.value, e.quote, e.url
            FROM kpi_evidence e JOIN company co USING (company_id) ORDER BY co.company_name, e.field"""
     ).fetchall()
     return {
         "Leads": leads,
+        "Other finds": other,
         "Details": details,
         "KPI definitions": kpi_definitions(con),
         "Priority rules": priority_rules(ctx.cfg["priority"]),
@@ -118,11 +119,27 @@ def why_text(why: str | None, review_reason: str | None, provider: str | None, r
     return why + ("; " + ", ".join(extra) if extra else "")
 
 
+def listing_why(sources: str | None) -> str:
+    """Why for a confirmed (listing) row: the non-Google directories that list it."""
+    dirs = [s for s in (sources or "").split(";") if s and s != "serper_maps"]
+    return "no website; listed as property manager in " + ", ".join(dirs)
+
+
 def contact(name: str | None, role: str | None) -> str:
     return f"{name} ({role})" if name and role else name or ""
 
 
-def leads_tables(con: Any) -> tuple[list[list[Any]], list[list[Any]]]:
+OTHER_HEADER = ["Company", "Bezirk", "Phone", "Website", "Status", "Found via"]
+SOURCE_NAMES = {"dasoertliche": "Das Örtliche", "gelbeseiten": "Gelbe Seiten", "11880": "11880", "osm": "OpenStreetMap",
+                "serper_maps": "Google Maps (via Serper)", "search": "web search", "association": "association list"}
+
+
+def found_via(sources: str | None) -> str:
+    return ", ".join(SOURCE_NAMES.get(s, s) for s in (sources or "").split(";") if s)
+
+
+def leads_tables(con: Any) -> tuple[list[list[Any]], list[list[Any]], list[list[Any]]]:
+    """Leads = confirmed rows (website or listing); Other finds = review rows; Details = all companies-tab rows."""
     rows = con.execute(
         """SELECT co.company_name, p.priority, p.why, co.review_reason, k.metering_provider, k.remote_reading_mentioned,
                   k.digital_tools, co.bezirk, co.website, co.phone, k.units_managed, k.segments, k.decision_maker,
@@ -134,19 +151,24 @@ def leads_tables(con: Any) -> tuple[list[list[Any]], list[list[Any]]]:
            LEFT JOIN linkedin l USING (company_id)
            WHERE co.tab = 'companies'"""
     ).fetchall()
-    leads, details = [], []
+    leads, other, details = [], [], []
     for (name, prio, why, reason, provider, remote, tools, bezirk, web, phone, units, segs, person, role, email,
          li, cid, street, pc, city, status, sources, email_basis, legal, reg, imp, place, by, units_text, checked) in rows:
-        label = priority_label(prio, web)
         address = ", ".join(x for x in (street, " ".join(y for y in (pc, city) if y)) if x)
-        leads.append([name, label, why_text(why, reason, provider, remote, tools), bezirk, web, phone, units, segs,
-                      contact(person, role), email, li])
         details.append([name, cid, address, status, reason, sources, email_basis, legal, reg, imp, place, by,
                         units_text, checked])
+        if not (status or "").startswith("confirmed"):
+            other.append([name, bezirk, phone, web, status, found_via(sources)])
+            continue
+        why_cell = listing_why(sources) if status == CONFIRMED_LISTING else why_text(why, reason, provider, remote, tools)
+        leads.append([name, priority_label(prio, web), why_cell, bezirk, web, phone, units, segs,
+                      contact(person, role), email, li])
     order = sorted(range(len(leads)), key=lambda i: (PRIORITY_ORDER[leads[i][1]], -(leads[i][6] or -1),
                                                      (leads[i][0] or "").lower()))
+    by_name = lambda r: (r[0] or "").lower()  # noqa: E731
     return ([LEADS_HEADER] + [leads[i] for i in order],
-            [DETAILS_HEADER] + sorted(details, key=lambda r: (r[0] or "").lower()))
+            [OTHER_HEADER] + sorted(other, key=by_name),
+            [DETAILS_HEADER] + sorted(details, key=by_name))
 
 
 # ---------- KPI definitions and priority rules ----------
@@ -162,8 +184,8 @@ def kpi_definitions(con: Any) -> list[list[Any]]:
     rate = {k: f"found for {v} of {n} confirmed companies ({v / n:.0%})" for k, v in found.items()}
     return [
         ["Leads column", "values", "why it matters to Heidi"],
-        ["Priority", "High / Medium / Low / Not checked – in review / Not checked – no website",
-         "Rules in the Priority rules tab. Not checked = no KPIs extracted (company not confirmed, or no website)"],
+        ["Priority", "High / Medium / Low / Not checked – no website",
+         "Rules in the Priority rules tab. Not checked – no website = confirmed by a directory listing, no site to read KPIs from"],
         ["Why", "sentence", "The rule that gave the priority, plus the KPIs below that live inside it"],
         ["Units managed", "number or empty", "More units = more meters = more revenue (stated wording in Details > Units basis)"],
         ["Segments", "WEG, Miet, SE, Gewerbe", "WEG and rental buildings need heating-cost billing"],
@@ -180,7 +202,11 @@ def kpi_definitions(con: Any) -> list[list[Any]]:
          f"Tenant portal or property software named = digitally mature. {rate['digital_tools']}"],
         ["High-priority Why texts also say \"no remote reading mentioned\" / \"no metering provider named\" when that made them open to switching."],
         [],
-        ["Dropped: is_housing_company. Task 1 puts housing companies in review, so it was never \"yes\" for a confirmed company."],
+        ["Dropped: is_housing_company as a column. Housing companies show \"housing company\" in Details > Review reason, "
+         "and Why adds \"housing company: buys via tenders\" when their website says so."],
+        ["Status (Details): confirmed (website) = property manager per its own website and Impressum; "
+         "confirmed (listing) = no website, but a non-Google directory lists it as a property manager and its name says so; "
+         "review = unclear. \"<field> uncertain\" in Review reason = regex and LLM disagreed on that field (the LLM value is shown)."],
         ["Empty = not found on the company's crawled pages; values are never guessed. Every value has a verbatim quote (Evidence tab)."],
     ]
 
@@ -194,7 +220,8 @@ def priority_rules(pc: dict[str, Any]) -> list[list[Any]]:
         ["Medium", "Everything else (incl. WEG/Miet with unknown units)"],
         [],
         ["Thresholds live in config/berlin.yaml (priority.low_units_below, priority.high_units_min)."],
-        [f"{IN_REVIEW}: company in review (reason in Why), no KPIs extracted. {NO_WEBSITE}: no website found."],
+        [f"{NO_WEBSITE}: confirmed (listing), no website to read KPIs from. "
+         "Companies still in review are not prioritised; they are in the Other finds tab."],
     ]
 
 

@@ -91,7 +91,7 @@ def run_linkedin(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
     rows = ctx.con.execute(
         """SELECT co.company_id, co.company_name, k.decision_maker, p.priority, coalesce(k.units_managed, 0)
            FROM kpi k JOIN company co USING (company_id) JOIN priority p USING (company_id)
-           WHERE k.decision_maker IS NOT NULL AND co.status = 'confirmed'
+           WHERE k.decision_maker IS NOT NULL AND co.status = 'confirmed (website)'
              AND co.company_id NOT IN (SELECT company_id FROM linkedin)"""
     ).fetchall()
     rows.sort(key=lambda r: (PRIORITY_ORDER.get(r[3], 9), -r[4], r[0]))

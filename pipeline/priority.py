@@ -52,7 +52,7 @@ def run_priority(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
         """SELECT k.company_id, k.segments, k.units_managed, k.remote_reading_mentioned, k.metering_provider,
                   k.is_housing_company
            FROM kpi k JOIN company co USING (company_id)
-           WHERE co.tab = 'companies' AND co.status = 'confirmed'"""
+           WHERE co.tab = 'companies' AND co.status = 'confirmed (website)'"""
     ).fetchall()
     out = [[cid, *decide(s, u, r, p, h, pc["low_units_below"], pc["high_units_min"])]
            for cid, s, u, r, p, h in rows]
@@ -61,7 +61,7 @@ def run_priority(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
         ctx.con.executemany("INSERT INTO priority VALUES (?, ?, ?)", out)
     missing = ctx.con.execute(
         """SELECT count(*) FROM company co LEFT JOIN kpi k USING (company_id)
-           WHERE co.tab = 'companies' AND co.status = 'confirmed' AND k.company_id IS NULL"""
+           WHERE co.tab = 'companies' AND co.status = 'confirmed (website)' AND k.company_id IS NULL"""
     ).fetchone()[0]
     counts = Counter(o[1] for o in out)
     res.counts = {"companies": len(out), "High": counts["High"], "Medium": counts["Medium"], "Low": counts["Low"],

@@ -8,3 +8,4 @@ data/pipeline.lock
 __pycache__/
 *.pyc
 .pytest_cache/
+data/backups/

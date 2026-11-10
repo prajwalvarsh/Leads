@@ -25,7 +25,7 @@ def company_sites(ctx: Ctx) -> list[tuple[str, str, str]]:
     return ctx.con.execute(
         """SELECT co.company_id, s.domain, s.final_url
            FROM company co JOIN crawl_site s ON s.final_url = co.website AND s.status = 'ok'
-           WHERE co.tab = 'companies' AND co.status = 'confirmed'
+           WHERE co.tab = 'companies' AND co.status = 'confirmed (website)'
            QUALIFY row_number() OVER (PARTITION BY co.company_id ORDER BY s.domain) = 1
            ORDER BY co.company_id"""
     ).fetchall()
@@ -69,7 +69,10 @@ async def _all(ctx: Ctx, sites: list[tuple[str, str, str]], known: dict[str, set
 def run_crawl_more(ctx: Ctx, params: dict[str, Any] | None = None) -> StageResult:
     res = StageResult(run_id=ctx.run_id, stage=STAGE)
     sites = company_sites(ctx)
-    have = ctx.con.execute("SELECT domain, url, page_type FROM page").fetchall()
+    if (params or {}).get("company_ids"):
+        wanted = set(params["company_ids"])
+        sites = [s for s in sites if s[0] in wanted]
+    have =ctx.con.execute("SELECT domain, url, page_type FROM page").fetchall()
     known: dict[str, set[str]] = {}
     done_kinds: dict[str, set[str]] = {}
     for d, u, k in have:

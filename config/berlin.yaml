@@ -199,8 +199,40 @@ bezirke:
   Tempelhof-Schöneberg: [Friedenau, Lichtenrade, Mariendorf, Marienfelde, Schöneberg, Tempelhof]
   Treptow-Köpenick: [Adlershof, Alt-Treptow, Altglienicke, Baumschulenweg, Bohnsdorf, Friedrichshagen, Grünau, Johannisthal, Köpenick, Müggelheim, Niederschöneweide, Oberschöneweide, Plänterwald, Rahnsdorf, Schmöckwitz]
 
+# Stage confirm (after geo): sets "confirmed (website)" / "confirmed (listing)" (user decisions 2026-11-10)
+confirm:
+  # reasons that do not block "confirmed (website)": kept in Review reason as a flag
+  website_flags: [housing company]
+  # "regex disagrees on <field>" does not block either; it becomes "<field> uncertain" (the LLM value is kept)
+  # no-website rows: a non-Google directory lists them under one of these categories (prefix match) ...
+  listing_categories:
+    dasoertliche: ["Haus- und Grundstücksverwaltungen"]
+    gelbeseiten: ["Haus- und Grundstücksverwaltungen"]
+    "11880": ["Hausverwaltung"]
+    osm: ["office=property_management"]
+  # ... and the name contains one of these (lowercase substring); a Bezirk is required too
+  listing_name_words: [hausverwalt, immobilienverwalt, weg-verwalt, wegverwalt, wohnungseigentumsverwalt,
+                       mietverwalt, sondereigentumsverwalt, se-verwalt, grundstücksverwalt, grundstuecksverwalt,
+                       property management, objektverwalt,
+                       wohnungsverwalt, grundbesitzverwalt, liegenschaftsverwalt, eigentumsverwalt, hausverw,
+                       gebäudeverwalt, immobilien-verwalt, haus- und grundstücksverw, haus- u. grundstücksverw,
+                       property services]
+  # manual fixes after checking the page by hand (company_id: fields; evidence = verbatim quote + URL)
+  overrides:
+    5eec14251325:   # text extraction dropped the first line of the Impressum name
+      company_name: Berlin-Kontor Verwaltungsgesellschaft mbH
+      evidence: "Die Berlin-Kontor Verwaltungsgesellschaft mbH sucht sowohl wohnungswirtschaftlich genutzte Immobilien"
+      url: https://www.berlin-kontor.de/
+    5ae5696e07ee:   # "Berlin-Kontor Verwaltungs GmbH" (11880, review): same address Friedrichstr. 133, same name
+      merge_into: 5eec14251325
+    9db5b68298f1:   # classify quote shows it manages only its own holdings, not a management service
+      status: review
+      review_reason: "manages only its own property"
+      evidence: "Die Boden-Finanz verwaltet den eigenen Grundbesitz mit Miet- und Eigentumswohnungen seit jeher selbst."
+      url: http://www.boden-finanz.de
+
 # ---------------- Task 2 ----------------
-crawl_more:                 # up to 3 more pages per confirmed company (team, jobs, references)
+crawl_more:                # up to 3 more pages per confirmed company (team, jobs, references)
   team_words: [team, ansprechpartner, mitarbeiter, unser team, über uns, ueber-uns]
   jobs_words: [karriere, jobs, stellenangebote, stellenanzeigen, stellen, career]
   references_words: [referenzen, objekte, leistungen, verwaltungsobjekte]

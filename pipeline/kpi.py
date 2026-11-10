@@ -320,7 +320,7 @@ def company_pages(ctx: Ctx) -> tuple[dict[str, dict[str, tuple[str, str]]], dict
            FROM company co
            JOIN crawl_site s ON s.final_url = co.website AND s.status = 'ok'
            JOIN page p ON p.domain = s.domain
-           WHERE co.tab = 'companies' AND co.status = 'confirmed' AND p.text IS NOT NULL
+           WHERE co.tab = 'companies' AND co.status = 'confirmed (website)' AND p.text IS NOT NULL
            ORDER BY co.company_id, p.url"""
     ).fetchall()
     pages: dict[str, dict[str, tuple[str, str]]] = {}
