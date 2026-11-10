@@ -1,0 +1,1308 @@
+{
+ "seed": 20261109,
+ "model": "openai/gpt-4o-mini",
+ "sample": [
+  "3e989b471440",
+  "0fa13fe77635",
+  "a938e5bd19d2",
+  "5af0896d4780",
+  "d2b9dec3d0f0",
+  "30ada0421cd2",
+  "94102c4d313d",
+  "7f86a03e2f69",
+  "3e607ffcb268",
+  "00f37142b20a",
+  "a0710dbd7278",
+  "226c2df3d241",
+  "4651c2aa3ae4",
+  "ab6ab61d1895",
+  "47cc2c5cd673",
+  "38cfe56303ef",
+  "68d3b3970c26",
+  "e03429e973f1",
+  "632892033e81",
+  "7f1b0b0fe6d7"
+ ],
+ "mismatches": [
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "no",
+   "match": "no",
+   "quote": ""
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "no",
+   "match": "no",
+   "quote": ""
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "street",
+   "sheet": "Marienburger Str. 1",
+   "check": "Marienburger Str. 1 • 10405 Berlin",
+   "match": "no",
+   "quote": "Marienburger Str. 1 • 10405 Berlin"
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "register_number",
+   "sheet": "",
+   "check": "HR-B 124081 B",
+   "match": "no",
+   "quote": "Handelsregister: HR-B 124081 B"
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "company_name",
+   "sheet": "Hausverwaltung B&G",
+   "check": "Hausverwaltung B&G - Barbara Kuhl-Dunkel e. K.",
+   "match": "no",
+   "quote": "Hausverwaltung B&G - Barbara Kuhl-Dunkel e. K."
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "register_number",
+   "sheet": "",
+   "check": "GSR59B",
+   "match": "no",
+   "quote": "Registereintrag:\nGSR59B"
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "company_name",
+   "sheet": "Sven Kurtzke Immobilienfachwirt IHK",
+   "check": "Kurtzke Immobilien",
+   "match": "no",
+   "quote": "KURTZKE IMMOBILIEN – Ihr Immobilienbegleiter"
+  }
+ ],
+ "table": [
+  {
+   "row": 1,
+   "company_id": "3e989b471440",
+   "url": "http://mfgservicesgmbh.de/impressum/",
+   "field": "company_name",
+   "sheet": "MFG Services GmbH",
+   "check": "MFG Services GmbH",
+   "match": "yes",
+   "quote": "MFG Services GmbH"
+  },
+  {
+   "row": 1,
+   "company_id": "3e989b471440",
+   "url": "http://mfgservicesgmbh.de/impressum/",
+   "field": "street",
+   "sheet": "Patschkauer Weg 35",
+   "check": "Patschkauer Weg 35",
+   "match": "yes",
+   "quote": "Patschkauer Weg 35"
+  },
+  {
+   "row": 1,
+   "company_id": "3e989b471440",
+   "url": "http://mfgservicesgmbh.de/impressum/",
+   "field": "postcode",
+   "sheet": "14195",
+   "check": "14195",
+   "match": "yes",
+   "quote": "14195"
+  },
+  {
+   "row": 1,
+   "company_id": "3e989b471440",
+   "url": "http://mfgservicesgmbh.de/impressum/",
+   "field": "phone",
+   "sheet": "+49308312122",
+   "check": "+49 30 8312122",
+   "match": "yes",
+   "quote": "Tel: +49 30 8312122"
+  },
+  {
+   "row": 1,
+   "company_id": "3e989b471440",
+   "url": "http://mfgservicesgmbh.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 15621",
+   "check": "HRB 15621",
+   "match": "yes",
+   "quote": "Handelsregisternummer: 96 HRB 15621"
+  },
+  {
+   "row": 1,
+   "company_id": "3e989b471440",
+   "url": "http://mfgservicesgmbh.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Die MFG Services GmbH Hausverwaltung"
+  },
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "company_name",
+   "sheet": "R.E.M.M. Invest Gesellschaft mit beschränkter Haftung",
+   "check": "R.E.M.M. Invest Gesellschaft mit beschränkter Haftung",
+   "match": "yes",
+   "quote": "R.E.M.M. Invest Gesellschaft mit beschränkter Haftung"
+  },
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "street",
+   "sheet": "Saarbrücker Straße 36",
+   "check": "Saarbrücker Straße 36",
+   "match": "yes",
+   "quote": "Saarbrücker Straße 36"
+  },
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "postcode",
+   "sheet": "10405",
+   "check": "10405",
+   "match": "yes",
+   "quote": "10405"
+  },
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "phone",
+   "sheet": "+49304466910",
+   "check": "+49 30 446691-0",
+   "match": "yes",
+   "quote": "Tel:\n+49 30 446691-0"
+  },
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 198985",
+   "check": "HRB 198985",
+   "match": "yes",
+   "quote": "HRB 198985"
+  },
+  {
+   "row": 2,
+   "company_id": "0fa13fe77635",
+   "url": "https://remm-wohnen.de/de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "no",
+   "match": "no",
+   "quote": ""
+  },
+  {
+   "row": 3,
+   "company_id": "a938e5bd19d2",
+   "url": "https://www.hausverwaltung-kuentzel.de/impressum/",
+   "field": "company_name",
+   "sheet": "Hausverwaltung Küntzel",
+   "check": "Hausverwaltung Küntzel",
+   "match": "yes",
+   "quote": "Hausverwaltung Küntzel"
+  },
+  {
+   "row": 3,
+   "company_id": "a938e5bd19d2",
+   "url": "https://www.hausverwaltung-kuentzel.de/impressum/",
+   "field": "street",
+   "sheet": "Habichtstr. 6a",
+   "check": "Habichtstr. 6a",
+   "match": "yes",
+   "quote": "Habichtstr. 6a"
+  },
+  {
+   "row": 3,
+   "company_id": "a938e5bd19d2",
+   "url": "https://www.hausverwaltung-kuentzel.de/impressum/",
+   "field": "postcode",
+   "sheet": "13505",
+   "check": "13505",
+   "match": "yes",
+   "quote": "13505"
+  },
+  {
+   "row": 3,
+   "company_id": "a938e5bd19d2",
+   "url": "https://www.hausverwaltung-kuentzel.de/impressum/",
+   "field": "phone",
+   "sheet": "+493041744245",
+   "check": "+49(0)30-417 44 245",
+   "match": "yes",
+   "quote": "Tel.: +49(0)30-417 44 245"
+  },
+  {
+   "row": 3,
+   "company_id": "a938e5bd19d2",
+   "url": "https://www.hausverwaltung-kuentzel.de/impressum/",
+   "field": "register_number",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 3,
+   "company_id": "a938e5bd19d2",
+   "url": "https://www.hausverwaltung-kuentzel.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Seit 1970 in der Haus- und Grundstücksverwaltung in Berlin und seit 1999 in Brandenburg tätig"
+  },
+  {
+   "row": 4,
+   "company_id": "5af0896d4780",
+   "url": "https://urban-hausverwaltung.de/impressum/",
+   "field": "company_name",
+   "sheet": "Urban Hausverwaltung UH GmbH",
+   "check": "Urban Hausverwaltung UH GmbH",
+   "match": "yes",
+   "quote": "Urban Hausverwaltung UH GmbH"
+  },
+  {
+   "row": 4,
+   "company_id": "5af0896d4780",
+   "url": "https://urban-hausverwaltung.de/impressum/",
+   "field": "street",
+   "sheet": "Zähringerstr. 28",
+   "check": "Zähringerstr. 28",
+   "match": "yes",
+   "quote": "Zähringerstr. 28"
+  },
+  {
+   "row": 4,
+   "company_id": "5af0896d4780",
+   "url": "https://urban-hausverwaltung.de/impressum/",
+   "field": "postcode",
+   "sheet": "10707",
+   "check": "10707",
+   "match": "yes",
+   "quote": "10707 Berlin"
+  },
+  {
+   "row": 4,
+   "company_id": "5af0896d4780",
+   "url": "https://urban-hausverwaltung.de/impressum/",
+   "field": "phone",
+   "sheet": "+493086329180",
+   "check": "030 / 863 29 18 0",
+   "match": "yes",
+   "quote": "Telefon:\n030 / 863 29 18 0"
+  },
+  {
+   "row": 4,
+   "company_id": "5af0896d4780",
+   "url": "https://urban-hausverwaltung.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin (Charlottenburg) HRB 207305 B",
+   "check": "HRB 207305 B",
+   "match": "yes",
+   "quote": "Registernummer: HRB 207305 B"
+  },
+  {
+   "row": 4,
+   "company_id": "5af0896d4780",
+   "url": "https://urban-hausverwaltung.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Erlaubnis als Wohnimmobilienverwalter gemäß § 34c Abs. 1 Satz 1 Nr. 4 GewO"
+  },
+  {
+   "row": 5,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "company_name",
+   "sheet": "Werneburg Immobilien",
+   "check": "Werneburg Immobilien",
+   "match": "yes",
+   "quote": "Werneburg Immobilien"
+  },
+  {
+   "row": 5,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "street",
+   "sheet": "Marientaler Straße 24a",
+   "check": "Marientaler Straße 24a",
+   "match": "yes",
+   "quote": "Marientaler Straße 24a"
+  },
+  {
+   "row": 5,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "postcode",
+   "sheet": "12437",
+   "check": "12437",
+   "match": "yes",
+   "quote": "12437"
+  },
+  {
+   "row": 5,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "phone",
+   "sheet": "+493066655666",
+   "check": "+49 (0) 30 666 55 666",
+   "match": "yes",
+   "quote": "Telefon: +49 (0) 30 666 55 666"
+  },
+  {
+   "row": 5,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "register_number",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 5,
+   "company_id": "d2b9dec3d0f0",
+   "url": "https://www.werneburg-immobilien.de/unternehmen/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Die Gewerbeerlaubnis nach § 34c GewO zur Vermittlung des Abschlusses und zum Nachweis der Gelegenheit zum Abschluss von Verträgen über Grundstücke, grundstücksgleiche Rechte, Wohnräume, Gewerberäume und Darlehen."
+  },
+  {
+   "row": 6,
+   "company_id": "30ada0421cd2",
+   "url": "https://www.plurahi.de/impressum/",
+   "field": "company_name",
+   "sheet": "Plura Haus und Immobilien GmbH",
+   "check": "Plura Haus und Immobilien GmbH",
+   "match": "yes",
+   "quote": "Plura Haus und Immobilien GmbH"
+  },
+  {
+   "row": 6,
+   "company_id": "30ada0421cd2",
+   "url": "https://www.plurahi.de/impressum/",
+   "field": "street",
+   "sheet": "Mariendorfer Damm 298",
+   "check": "Mariendorfer Damm 298",
+   "match": "yes",
+   "quote": "Mariendorfer Damm 298"
+  },
+  {
+   "row": 6,
+   "company_id": "30ada0421cd2",
+   "url": "https://www.plurahi.de/impressum/",
+   "field": "postcode",
+   "sheet": "12107",
+   "check": "12107",
+   "match": "yes",
+   "quote": "12107 Berlin"
+  },
+  {
+   "row": 6,
+   "company_id": "30ada0421cd2",
+   "url": "https://www.plurahi.de/impressum/",
+   "field": "phone",
+   "sheet": "+49307730020",
+   "check": "030 / 773 00 20",
+   "match": "yes",
+   "quote": "Telefon: 030 / 773 00 20"
+  },
+  {
+   "row": 6,
+   "company_id": "30ada0421cd2",
+   "url": "https://www.plurahi.de/impressum/",
+   "field": "register_number",
+   "sheet": "HRB 80934",
+   "check": "HRB 80934",
+   "match": "yes",
+   "quote": "HRB 80934"
+  },
+  {
+   "row": 6,
+   "company_id": "30ada0421cd2",
+   "url": "https://www.plurahi.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Die hier dargestellten Immobilien / Inserate werden über die Maklersoftware von OpenEstate durch die Plura Haus und Immobilien GmbH verwaltet."
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "company_name",
+   "sheet": "Schimpf GmbH",
+   "check": "SCHIMPF GmbH",
+   "match": "yes",
+   "quote": "SCHIMPF GmbH"
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "street",
+   "sheet": "Dernburgstr. 59",
+   "check": "Dernburgstr. 59",
+   "match": "yes",
+   "quote": "Dernburgstr. 59"
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "postcode",
+   "sheet": "14057",
+   "check": "14057",
+   "match": "yes",
+   "quote": "14057"
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "phone",
+   "sheet": "+49303214073",
+   "check": "030 / 3214073",
+   "match": "yes",
+   "quote": "Telefon: 030 / 3214073"
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 842",
+   "check": "HRB 842",
+   "match": "yes",
+   "quote": "Handelsregister: HRB 842"
+  },
+  {
+   "row": 7,
+   "company_id": "94102c4d313d",
+   "url": "https://www.schimpfgmbh.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "no",
+   "match": "no",
+   "quote": ""
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "company_name",
+   "sheet": "Merkur Immobilienverwaltung UG (haftungsbeschränkt)",
+   "check": "Merkur Immobilienverwaltung UG (haftungsbeschränkt)",
+   "match": "yes",
+   "quote": "Merkur Immobilienverwaltung UG (haftungsbeschränkt)"
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "street",
+   "sheet": "Marienburger Str. 1",
+   "check": "Marienburger Str. 1 • 10405 Berlin",
+   "match": "no",
+   "quote": "Marienburger Str. 1 • 10405 Berlin"
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "postcode",
+   "sheet": "10405",
+   "check": "10405",
+   "match": "yes",
+   "quote": "Marienburger Str. 1 • 10405 Berlin"
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "phone",
+   "sheet": "+493044310672",
+   "check": "030 - 44 31 06 72",
+   "match": "yes",
+   "quote": "Telefon:\n030 - 44 31 06 72"
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "register_number",
+   "sheet": "",
+   "check": "HR-B 124081 B",
+   "match": "no",
+   "quote": "Handelsregister: HR-B 124081 B"
+  },
+  {
+   "row": 8,
+   "company_id": "7f86a03e2f69",
+   "url": "http://www.merkur-immobilienservice.de/impressum.html",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Hausverwaltung"
+  },
+  {
+   "row": 9,
+   "company_id": "3e607ffcb268",
+   "url": "https://hv-paukstat.de/impressum/",
+   "field": "company_name",
+   "sheet": "Hausverwaltung Paukstat GmbH",
+   "check": "Hausverwaltung Paukstat GmbH",
+   "match": "yes",
+   "quote": "Hausverwaltung Paukstat GmbH"
+  },
+  {
+   "row": 9,
+   "company_id": "3e607ffcb268",
+   "url": "https://hv-paukstat.de/impressum/",
+   "field": "street",
+   "sheet": "Schloßstraße 21",
+   "check": "Schloßstraße 21",
+   "match": "yes",
+   "quote": "Schloßstraße 21"
+  },
+  {
+   "row": 9,
+   "company_id": "3e607ffcb268",
+   "url": "https://hv-paukstat.de/impressum/",
+   "field": "postcode",
+   "sheet": "13507",
+   "check": "13507",
+   "match": "yes",
+   "quote": "13507"
+  },
+  {
+   "row": 9,
+   "company_id": "3e607ffcb268",
+   "url": "https://hv-paukstat.de/impressum/",
+   "field": "phone",
+   "sheet": "+491796151770",
+   "check": "+491796151770",
+   "match": "yes",
+   "quote": "Telefon: +491796151770"
+  },
+  {
+   "row": 9,
+   "company_id": "3e607ffcb268",
+   "url": "https://hv-paukstat.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg (Berlin) HRB 243612 B",
+   "check": "HRB 243612 B",
+   "match": "yes",
+   "quote": "Registernummer: HRB 243612 B"
+  },
+  {
+   "row": 9,
+   "company_id": "3e607ffcb268",
+   "url": "https://hv-paukstat.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Ihre Hausverwaltung mit Herz!"
+  },
+  {
+   "row": 10,
+   "company_id": "00f37142b20a",
+   "url": "https://www.ziggel-immobilien.de/impressum.html",
+   "field": "company_name",
+   "sheet": "Heinz Ziggel KG",
+   "check": "Heinz Ziggel KG",
+   "match": "yes",
+   "quote": "Heinz Ziggel KG"
+  },
+  {
+   "row": 10,
+   "company_id": "00f37142b20a",
+   "url": "https://www.ziggel-immobilien.de/impressum.html",
+   "field": "street",
+   "sheet": "Caspar-Theyß-Str. 14 A",
+   "check": "Caspar-Theyß-Str. 14 A",
+   "match": "yes",
+   "quote": "Caspar-Theyß-Str. 14 A"
+  },
+  {
+   "row": 10,
+   "company_id": "00f37142b20a",
+   "url": "https://www.ziggel-immobilien.de/impressum.html",
+   "field": "postcode",
+   "sheet": "14193",
+   "check": "14193",
+   "match": "yes",
+   "quote": "14193"
+  },
+  {
+   "row": 10,
+   "company_id": "00f37142b20a",
+   "url": "https://www.ziggel-immobilien.de/impressum.html",
+   "field": "phone",
+   "sheet": "+49303921047",
+   "check": "+49 (0) 30 - 39 21 04 7",
+   "match": "yes",
+   "quote": "Telefon: +49 (0) 30 - 39 21 04 7"
+  },
+  {
+   "row": 10,
+   "company_id": "00f37142b20a",
+   "url": "https://www.ziggel-immobilien.de/impressum.html",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRA 15967 B",
+   "check": "HRA 15967 B",
+   "match": "yes",
+   "quote": "HRA 15967 B"
+  },
+  {
+   "row": 10,
+   "company_id": "00f37142b20a",
+   "url": "https://www.ziggel-immobilien.de/impressum.html",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Erlaubnis nach §34c der Gewerbeordnung"
+  },
+  {
+   "row": 11,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "company_name",
+   "sheet": "rentatect GmbH",
+   "check": "rentatect GmbH",
+   "match": "yes",
+   "quote": "rentatect GmbH"
+  },
+  {
+   "row": 11,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "street",
+   "sheet": "Voigtstraße 36/37",
+   "check": "Voigtstraße 36/37",
+   "match": "yes",
+   "quote": "Adresse: Voigtstraße 36/37"
+  },
+  {
+   "row": 11,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "postcode",
+   "sheet": "10247",
+   "check": "10247",
+   "match": "yes",
+   "quote": "10247 Berlin"
+  },
+  {
+   "row": 11,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "phone",
+   "sheet": "+493034620569",
+   "check": "030 - 34 62 05 69",
+   "match": "yes",
+   "quote": "Telefon: 030 - 34 62 05 69"
+  },
+  {
+   "row": 11,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg HRB 139700 B",
+   "check": "HRB 139700B",
+   "match": "yes",
+   "quote": "Handelsregister: Amtsgericht Berlin-Charlottenburg, HRB 139700B"
+  },
+  {
+   "row": 11,
+   "company_id": "a0710dbd7278",
+   "url": "https://www.rentatect.de/impressum.html",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "GmbH Immobilien & Verwaltungen"
+  },
+  {
+   "row": 12,
+   "company_id": "226c2df3d241",
+   "url": "https://gawehn.de/impressum",
+   "field": "company_name",
+   "sheet": "G. Gawehn Grundstücksverwaltung GmbH",
+   "check": "G. Gawehn Grundstücksverwaltung GmbH",
+   "match": "yes",
+   "quote": "G. Gawehn Grundstücksverwaltung GmbH"
+  },
+  {
+   "row": 12,
+   "company_id": "226c2df3d241",
+   "url": "https://gawehn.de/impressum",
+   "field": "street",
+   "sheet": "Peter-Vischer-Str. 2",
+   "check": "Peter-Vischer-Str. 2",
+   "match": "yes",
+   "quote": "Peter-Vischer-Str. 2"
+  },
+  {
+   "row": 12,
+   "company_id": "226c2df3d241",
+   "url": "https://gawehn.de/impressum",
+   "field": "postcode",
+   "sheet": "12157",
+   "check": "12157",
+   "match": "yes",
+   "quote": "12157 Berlin"
+  },
+  {
+   "row": 12,
+   "company_id": "226c2df3d241",
+   "url": "https://gawehn.de/impressum",
+   "field": "phone",
+   "sheet": "+49308557145",
+   "check": "+49 30 855 71 45",
+   "match": "yes",
+   "quote": "Telefon: +49 30 855 71 45"
+  },
+  {
+   "row": 12,
+   "company_id": "226c2df3d241",
+   "url": "https://gawehn.de/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Charlottenburg HRB 46330",
+   "check": "HRB 46330 Amtsgericht Charlottenburg",
+   "match": "yes",
+   "quote": "Handelsregister:\nHRB 46330 Amtsgericht Charlottenburg"
+  },
+  {
+   "row": 12,
+   "company_id": "226c2df3d241",
+   "url": "https://gawehn.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "G. Gawehn Grundstücksverwaltung GmbH"
+  },
+  {
+   "row": 13,
+   "company_id": "4651c2aa3ae4",
+   "url": "https://amgroupgmbh.de/impressum/",
+   "field": "company_name",
+   "sheet": "AM Group GmbH & Co. KG",
+   "check": "AM Group GmbH & Co. KG",
+   "match": "yes",
+   "quote": "AM Group GmbH & Co. KG"
+  },
+  {
+   "row": 13,
+   "company_id": "4651c2aa3ae4",
+   "url": "https://amgroupgmbh.de/impressum/",
+   "field": "street",
+   "sheet": "Groß-Ziethener Chaussee 133",
+   "check": "Groß-Ziethener Chaussee 133",
+   "match": "yes",
+   "quote": "Groß-Ziethener Chaussee 133"
+  },
+  {
+   "row": 13,
+   "company_id": "4651c2aa3ae4",
+   "url": "https://amgroupgmbh.de/impressum/",
+   "field": "postcode",
+   "sheet": "12355",
+   "check": "12355",
+   "match": "yes",
+   "quote": "12355"
+  },
+  {
+   "row": 13,
+   "company_id": "4651c2aa3ae4",
+   "url": "https://amgroupgmbh.de/impressum/",
+   "field": "phone",
+   "sheet": "+493064462002",
+   "check": "+49 30 64 46 20 02",
+   "match": "yes",
+   "quote": "Tel.: +49 30 64 46 20 02"
+  },
+  {
+   "row": 13,
+   "company_id": "4651c2aa3ae4",
+   "url": "https://amgroupgmbh.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin HRA 60364 B",
+   "check": "HRA 60364 B",
+   "match": "yes",
+   "quote": "Registernummer: HRA 60364 B"
+  },
+  {
+   "row": 13,
+   "company_id": "4651c2aa3ae4",
+   "url": "https://amgroupgmbh.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Angaben für die Tätigkeit als Immobilienmakler/in gemäß § 34c Abs. 1 GewO"
+  },
+  {
+   "row": 14,
+   "company_id": "ab6ab61d1895",
+   "url": "https://www.meterhoch2.de/m2_wordpress/impressum",
+   "field": "company_name",
+   "sheet": "meterhoch2! Hausverwaltungen GmbH",
+   "check": "meterhoch2! Hausverwaltungen GmbH",
+   "match": "yes",
+   "quote": "meterhoch2! Hausverwaltungen GmbH"
+  },
+  {
+   "row": 14,
+   "company_id": "ab6ab61d1895",
+   "url": "https://www.meterhoch2.de/m2_wordpress/impressum",
+   "field": "street",
+   "sheet": "Schwarzbacher Straße 3",
+   "check": "Schwarzbacher Straße 3",
+   "match": "yes",
+   "quote": "Schwarzbacher Straße 3"
+  },
+  {
+   "row": 14,
+   "company_id": "ab6ab61d1895",
+   "url": "https://www.meterhoch2.de/m2_wordpress/impressum",
+   "field": "postcode",
+   "sheet": "10711",
+   "check": "10711",
+   "match": "yes",
+   "quote": "10711"
+  },
+  {
+   "row": 14,
+   "company_id": "ab6ab61d1895",
+   "url": "https://www.meterhoch2.de/m2_wordpress/impressum",
+   "field": "phone",
+   "sheet": "+493089090903",
+   "check": "+49(0)30 89090903",
+   "match": "yes",
+   "quote": "Telefon: +49(0)30 89090903"
+  },
+  {
+   "row": 14,
+   "company_id": "ab6ab61d1895",
+   "url": "https://www.meterhoch2.de/m2_wordpress/impressum",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg HRB 51361 B",
+   "check": "HRB 51361B",
+   "match": "yes",
+   "quote": "Handelsregister: HRB 51361B"
+  },
+  {
+   "row": 14,
+   "company_id": "ab6ab61d1895",
+   "url": "https://www.meterhoch2.de/m2_wordpress/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "meterhoch2! Hausverwaltungen GmbH"
+  },
+  {
+   "row": 15,
+   "company_id": "47cc2c5cd673",
+   "url": "https://wotum.de/impressum.html",
+   "field": "company_name",
+   "sheet": "Wotum Gesellschaft für Wohnungseigentum mbH",
+   "check": "Wotum Gesellschaft für Wohnungseigentum mbH",
+   "match": "yes",
+   "quote": "Wotum Gesellschaft für Wohnungseigentum mbH"
+  },
+  {
+   "row": 15,
+   "company_id": "47cc2c5cd673",
+   "url": "https://wotum.de/impressum.html",
+   "field": "street",
+   "sheet": "Heinrich-Heine-Str. 62D",
+   "check": "Heinrich-Heine-Str. 62D",
+   "match": "yes",
+   "quote": "Heinrich-Heine-Str. 62D"
+  },
+  {
+   "row": 15,
+   "company_id": "47cc2c5cd673",
+   "url": "https://wotum.de/impressum.html",
+   "field": "postcode",
+   "sheet": "10179",
+   "check": "10179",
+   "match": "yes",
+   "quote": "10179 Berlin"
+  },
+  {
+   "row": 15,
+   "company_id": "47cc2c5cd673",
+   "url": "https://wotum.de/impressum.html",
+   "field": "phone",
+   "sheet": "+49304436390",
+   "check": "(030) 44 36 39 – 0",
+   "match": "yes",
+   "quote": "Telefon: (030) 44 36 39 – 0"
+  },
+  {
+   "row": 15,
+   "company_id": "47cc2c5cd673",
+   "url": "https://wotum.de/impressum.html",
+   "field": "register_number",
+   "sheet": "AG Berlin-Charlottenburg HRB 55018",
+   "check": "HRB 55018",
+   "match": "yes",
+   "quote": "Registernummer: HRB 55018"
+  },
+  {
+   "row": 15,
+   "company_id": "47cc2c5cd673",
+   "url": "https://wotum.de/impressum.html",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Wotum Gesellschaft für Wohnungseigentum mbH"
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "company_name",
+   "sheet": "Hausverwaltung B&G",
+   "check": "Hausverwaltung B&G - Barbara Kuhl-Dunkel e. K.",
+   "match": "no",
+   "quote": "Hausverwaltung B&G - Barbara Kuhl-Dunkel e. K."
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "street",
+   "sheet": "Aachener Straße 44",
+   "check": "Aachener Straße 44",
+   "match": "yes",
+   "quote": "Anschrift:\nAachener Straße 44"
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "postcode",
+   "sheet": "10713",
+   "check": "10713",
+   "match": "yes",
+   "quote": "Aachener Straße 44"
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "phone",
+   "sheet": "+493036742479",
+   "check": "+49 (0)30 367 424 79",
+   "match": "yes",
+   "quote": "Telefon: +49 (0)30 367 424 79"
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "register_number",
+   "sheet": "HRA 56914 B",
+   "check": "HRA 56914 B",
+   "match": "yes",
+   "quote": "Handelsregister-Eintrag: HRA 56914 B"
+  },
+  {
+   "row": 16,
+   "company_id": "38cfe56303ef",
+   "url": "https://hv-bg.de/impressum.html",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Wohnimmobilienverwaltung gem. §34 c Abs.1 Nr. 4 GewO."
+  },
+  {
+   "row": 17,
+   "company_id": "68d3b3970c26",
+   "url": "https://www.hv-esser.de/impressum",
+   "field": "company_name",
+   "sheet": "Eßer Hausverwaltung",
+   "check": "Eßer Hausverwaltung",
+   "match": "yes",
+   "quote": "Eßer Hausverwaltung"
+  },
+  {
+   "row": 17,
+   "company_id": "68d3b3970c26",
+   "url": "https://www.hv-esser.de/impressum",
+   "field": "street",
+   "sheet": "Pücklerstr. 23",
+   "check": "Pücklerstr. 23",
+   "match": "yes",
+   "quote": "Pücklerstr. 23"
+  },
+  {
+   "row": 17,
+   "company_id": "68d3b3970c26",
+   "url": "https://www.hv-esser.de/impressum",
+   "field": "postcode",
+   "sheet": "10997",
+   "check": "10997",
+   "match": "yes",
+   "quote": "10997"
+  },
+  {
+   "row": 17,
+   "company_id": "68d3b3970c26",
+   "url": "https://www.hv-esser.de/impressum",
+   "field": "phone",
+   "sheet": "+49306159163",
+   "check": "030 - 615 91 63",
+   "match": "yes",
+   "quote": "Tel: 030 - 615 91 63"
+  },
+  {
+   "row": 17,
+   "company_id": "68d3b3970c26",
+   "url": "https://www.hv-esser.de/impressum",
+   "field": "register_number",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 17,
+   "company_id": "68d3b3970c26",
+   "url": "https://www.hv-esser.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Eßer Hausverwaltung"
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "company_name",
+   "sheet": "Bersulin eGbR",
+   "check": "Bersulin eGbR",
+   "match": "yes",
+   "quote": "Bersulin eGbR"
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "street",
+   "sheet": "Bundesallee 181",
+   "check": "Bundesallee 181",
+   "match": "yes",
+   "quote": "Bundesallee 181"
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "postcode",
+   "sheet": "10717",
+   "check": "10717",
+   "match": "yes",
+   "quote": "10717"
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "phone",
+   "sheet": "+49308543022",
+   "check": "030 8543022",
+   "match": "yes",
+   "quote": "Telefon: 030 8543022"
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "register_number",
+   "sheet": "",
+   "check": "GSR59B",
+   "match": "no",
+   "quote": "Registereintrag:\nGSR59B"
+  },
+  {
+   "row": 18,
+   "company_id": "e03429e973f1",
+   "url": "https://bersulin.de/impressum",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "Verwaltung von 350 Mieteinheiten in Berlin und am Bodensee"
+  },
+  {
+   "row": 19,
+   "company_id": "632892033e81",
+   "url": "https://terra-real.de/impressum/",
+   "field": "company_name",
+   "sheet": "Terra Real Verwaltungs GmbH",
+   "check": "Terra Real Verwaltungs GmbH",
+   "match": "yes",
+   "quote": "Terra Real Verwaltungs GmbH"
+  },
+  {
+   "row": 19,
+   "company_id": "632892033e81",
+   "url": "https://terra-real.de/impressum/",
+   "field": "street",
+   "sheet": "Sybelstr 32",
+   "check": "Sybelstr 32",
+   "match": "yes",
+   "quote": "Sybelstr 32"
+  },
+  {
+   "row": 19,
+   "company_id": "632892033e81",
+   "url": "https://terra-real.de/impressum/",
+   "field": "postcode",
+   "sheet": "10629",
+   "check": "10629",
+   "match": "yes",
+   "quote": "10629"
+  },
+  {
+   "row": 19,
+   "company_id": "632892033e81",
+   "url": "https://terra-real.de/impressum/",
+   "field": "phone",
+   "sheet": "+49303240845",
+   "check": "+49 30 324 08 45",
+   "match": "yes",
+   "quote": "Telefon: +49 30 324 08 45"
+  },
+  {
+   "row": 19,
+   "company_id": "632892033e81",
+   "url": "https://terra-real.de/impressum/",
+   "field": "register_number",
+   "sheet": "Amtsgericht Berlin-Charlottenburg HRB 51417",
+   "check": "HRB 51417",
+   "match": "yes",
+   "quote": "Registernummer: 93 HRB 51417"
+  },
+  {
+   "row": 19,
+   "company_id": "632892033e81",
+   "url": "https://terra-real.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "company_name",
+   "sheet": "Sven Kurtzke Immobilienfachwirt IHK",
+   "check": "Kurtzke Immobilien",
+   "match": "no",
+   "quote": "KURTZKE IMMOBILIEN – Ihr Immobilienbegleiter"
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "street",
+   "sheet": "Langhansstr. 83/83a",
+   "check": "Langhansstr. 83/83a",
+   "match": "yes",
+   "quote": "Langhansstr. 83/83a, 13086 Berlin"
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "postcode",
+   "sheet": "13086",
+   "check": "13086",
+   "match": "yes",
+   "quote": "Langhansstr. 83/83a, 13086 Berlin"
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "phone",
+   "sheet": "+493088725320",
+   "check": "030 88725320",
+   "match": "yes",
+   "quote": "Tel 030.88725320"
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "register_number",
+   "sheet": "",
+   "check": "",
+   "match": "yes",
+   "quote": ""
+  },
+  {
+   "row": 20,
+   "company_id": "7f1b0b0fe6d7",
+   "url": "https://www.kurtzke-immobilien.de/impressum/",
+   "field": "is_property_manager",
+   "sheet": "yes",
+   "check": "yes",
+   "match": "yes",
+   "quote": "zertifizierter Verwalter IHK im Sinn von § 26a WEG"
+  }
+ ],
+ "accuracy": {
+  "company_name": "18/20 (90%)",
+  "street": "19/20 (95%)",
+  "postcode": "20/20 (100%)",
+  "phone": "20/20 (100%)",
+  "register_number": "18/20 (90%)",
+  "is_property_manager": "18/20 (90%)"
+ }
+}
